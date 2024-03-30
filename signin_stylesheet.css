@@ -1,0 +1,40 @@
+body {
+    background-color: #c8443c ;
+}
+
+.form {
+    height: 20%;
+    width: 30%;
+    position: absolute;
+    left: 35%;
+    top: 30%;
+    border: 5px solid #f0c189;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Bahnschrift;
+}
+
+label{
+    text-align: center;
+    color: #ffe8c9;
+}
+
+input {
+    width: 75%;
+}
+
+
+#submit {
+    width: 80%;
+    background-color: #ffe8c9;
+    border: none;
+    border-radius: 2px;
+    font-family: Bahnschrift;
+}
+
+#submit:hover {
+    background-color: #f0c189;
+}
