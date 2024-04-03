@@ -1,20 +1,19 @@
 <?php
+include "header.inc.php";
+
+$current_page = "group_name"; /* připsat PHP, které bude měnit jméno */
 
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="index_stylesheet.css">
-    <title>Flabbergasted</title>
-</head>
-<body>
 
-<header>
-    <H1>Hello</H1>
-</header>
+<head>
+    <link rel="stylesheet" href="group_stylesheet.css">
+</head>
+
+<body>
 
 <main>
 
