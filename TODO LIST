@@ -1,0 +1,33 @@
+Hlavička
+    - jméno
+    - nastavení pro admina
+    - vyčtení jednotlivých skupin, co hráč vidí
+    - odhlášení
+    - otázka: měla bych tohle dělat, nebo to stačí akorát copy paste
+
+Index
+    - Vítej zpět
+    - výpis skupin
+
+Group
+    - dodělat column kategorie a hráči PHP a JavaScript
+    - vytvořit column note (má vlastní nadpis a tělo, pro jednotlivé poznámky)
+    - Vytvořit chat
+    - dodělat Social Club PHP
+
+
+Login site
+    - error message, že na tuhle stránku mohou pouze hráči, kteří již mají účet a hráč se má případně zeptat toho, kdo tuhle stránku zřizuje
+    - CSS border - udělej background image a udělej ho s alfa jpg
+    - CSS border nebo udělej jeden výkus a použij border-image
+
+Nastavení pro admina
+    - tvorba uživatelů
+    - tvorba skupin
+    - edit uživatelů skupin
+
+
+Estetické věci
+    - scroll bannery udělat hezčí
+    - Vlastní font (co používá flabbergasted?)
+    - u notes vs categoris napravit ten kousek padding/margin/whatever dole, který blokuje a offsetuje notes

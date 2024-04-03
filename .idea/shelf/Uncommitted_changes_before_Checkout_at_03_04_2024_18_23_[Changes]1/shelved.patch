@@ -1,0 +1,150 @@
+Index: index.html
+===================================================================
+diff --git a/index.html b/index.html
+deleted file mode 100644
+--- a/index.html	
++++ /dev/null	
+@@ -1,109 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <link rel="stylesheet" href="index_stylesheet.css">
+-    <title>Flabbergasted</title>
+-</head>
+-<body>
+-
+-<header>
+-    <H1>Hello</H1>
+-</header>
+-
+-<main>
+-
+-<div class="column_chat">
+-    <div class="social_club">
+-        <h2>The Social Club</h2>
+-        <div class="social_club_content">
+-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet volutpat consequat mauris nunc congue nisi vitae. A diam maecenas sed enim ut sem. Elementum curabitur vitae nunc sed velit dignissim. Leo in vitae turpis massa sed. Viverra orci sagittis eu volutpat odio. Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus. Sollicitudin tempor id eu nisl nunc. Imperdiet sed euismod nisi porta. Id porta nibh venenatis cras. Auctor urna nunc id cursus metus aliquam eleifend mi. Lobortis scelerisque fermentum dui faucibus in. Enim diam vulputate ut pharetra sit. Aenean pharetra magna ac placerat vestibulum lectus mauris. In cursus turpis massa tincidunt dui. Vitae justo eget magna fermentum iaculis eu non diam phasellus.
+-
+-            Auctor eu augue ut lectus arcu bibendum at. Viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est. Sollicitudin aliquam ultrices sagittis orci a. Mattis vulputate enim nulla aliquet porttitor lacus luctus. Fermentum dui faucibus in ornare quam viverra orci. Morbi tempus iaculis urna id. Ut aliquam purus sit amet luctus venenatis. Imperdiet proin fermentum leo vel. Montes nascetur ridiculus mus mauris. Erat velit scelerisque in dictum non consectetur a erat nam. Varius vel pharetra vel turpis. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Egestas sed tempus urna et pharetra pharetra massa.
+-
+-            Tincidunt augue interdum velit euismod in pellentesque. Ultrices eros in cursus turpis massa tincidunt dui ut. Eget sit amet tellus cras adipiscing. Egestas dui id ornare arcu odio ut sem. Neque egestas congue quisque egestas diam in arcu cursus. Aliquam nulla facilisi cras fermentum odio eu. Diam sit amet nisl suscipit adipiscing. Eget nullam non nisi est sit amet facilisis. Enim nulla aliquet porttitor lacus. Cras fermentum odio eu feugiat pretium. At imperdiet dui accumsan sit amet nulla facilisi morbi tempus.
+-
+-            Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Viverra aliquet eget sit amet tellus cras. Non quam lacus suspendisse faucibus interdum posuere lorem. Magna eget est lorem ipsum dolor sit. Dapibus ultrices in iaculis nunc. Velit ut tortor pretium viverra suspendisse potenti. A condimentum vitae sapien pellentesque. Vel turpis nunc eget lorem dolor sed viverra. Donec ultrices tincidunt arcu non sodales neque sodales. Ultricies integer quis auctor elit sed vulputate mi sit. Ultrices mi tempus imperdiet nulla malesuada pellentesque. Egestas purus viverra accumsan in nisl nisi scelerisque. Volutpat ac tincidunt vitae semper quis. Libero nunc consequat interdum varius. Risus commodo viverra maecenas accumsan lacus vel.
+-
+-            Vehicula ipsum a arcu cursus vitae congue mauris rhoncus aenean. Vitae suscipit tellus mauris a diam maecenas sed. Mattis ullamcorper velit sed ullamcorper. Diam phasellus vestibulum lorem sed. Natoque penatibus et magnis dis parturient montes. Nisl nunc mi ipsum faucibus. Senectus et netus et malesuada. Gravida cum sociis natoque penatibus et magnis dis parturient. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Eget nulla facilisi etiam dignissim.
+-        </div>
+-
+-    </div>
+-
+-    <div class="chat">
+-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet volutpat consequat mauris nunc congue nisi vitae. A diam maecenas sed enim ut sem. Elementum curabitur vitae nunc sed velit dignissim. Leo in vitae turpis massa sed. Viverra orci sagittis eu volutpat odio. Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus. Sollicitudin tempor id eu nisl nunc. Imperdiet sed euismod nisi porta. Id porta nibh venenatis cras. Auctor urna nunc id cursus metus aliquam eleifend mi. Lobortis scelerisque fermentum dui faucibus in. Enim diam vulputate ut pharetra sit. Aenean pharetra magna ac placerat vestibulum lectus mauris. In cursus turpis massa tincidunt dui. Vitae justo eget magna fermentum iaculis eu non diam phasellus.
+-
+-        Auctor eu augue ut lectus arcu bibendum at. Viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est. Sollicitudin aliquam ultrices sagittis orci a. Mattis vulputate enim nulla aliquet porttitor lacus luctus. Fermentum dui faucibus in ornare quam viverra orci. Morbi tempus iaculis urna id. Ut aliquam purus sit amet luctus venenatis. Imperdiet proin fermentum leo vel. Montes nascetur ridiculus mus mauris. Erat velit scelerisque in dictum non consectetur a erat nam. Varius vel pharetra vel turpis. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Egestas sed tempus urna et pharetra pharetra massa.
+-
+-        Tincidunt augue interdum velit euismod in pellentesque. Ultrices eros in cursus turpis massa tincidunt dui ut. Eget sit amet tellus cras adipiscing. Egestas dui id ornare arcu odio ut sem. Neque egestas congue quisque egestas diam in arcu cursus. Aliquam nulla facilisi cras fermentum odio eu. Diam sit amet nisl suscipit adipiscing. Eget nullam non nisi est sit amet facilisis. Enim nulla aliquet porttitor lacus. Cras fermentum odio eu feugiat pretium. At imperdiet dui accumsan sit amet nulla facilisi morbi tempus.
+-
+-        Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Viverra aliquet eget sit amet tellus cras. Non quam lacus suspendisse faucibus interdum posuere lorem. Magna eget est lorem ipsum dolor sit. Dapibus ultrices in iaculis nunc. Velit ut tortor pretium viverra suspendisse potenti. A condimentum vitae sapien pellentesque. Vel turpis nunc eget lorem dolor sed viverra. Donec ultrices tincidunt arcu non sodales neque sodales. Ultricies integer quis auctor elit sed vulputate mi sit. Ultrices mi tempus imperdiet nulla malesuada pellentesque. Egestas purus viverra accumsan in nisl nisi scelerisque. Volutpat ac tincidunt vitae semper quis. Libero nunc consequat interdum varius. Risus commodo viverra maecenas accumsan lacus vel.
+-
+-        Vehicula ipsum a arcu cursus vitae congue mauris rhoncus aenean. Vitae suscipit tellus mauris a diam maecenas sed. Mattis ullamcorper velit sed ullamcorper. Diam phasellus vestibulum lorem sed. Natoque penatibus et magnis dis parturient montes. Nisl nunc mi ipsum faucibus. Senectus et netus et malesuada. Gravida cum sociis natoque penatibus et magnis dis parturient. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Eget nulla facilisi etiam dignissim.
+-
+-    </div>
+-
+-
+-</div>
+-
+-    <!-- druhý column, zde jsou postavy -->
+-    <div class="column">
+-        <div class="dropdown">
+-            <h2 class="dropdown-hover">Characters</h2>
+-            <div class="dropdown-content">
+-                <!-- zde bude PHP nebo JavaScrip, který vyčte všechny postavy-->
+-                <a href="#a">Link 1</a>
+-                <a href="#b">Link 2</a>
+-                <a href="#c">Link 3</a>
+-            </div>
+-        </div>
+-    </div>
+-
+-    <!--třetí column, ve kterém jsou schované kategorie a poznámky -->
+-    <div class="column">
+-
+-        <div class="dropdown">
+-        <h2 class="dropdown-hover">Categories</h2> <!--název bude vždy categories - jméno aktegorie, ve které zrovna jsme -->
+-            <div class="dropdown-content">
+-                <!-- zde bude PHP nebo JavaScrip, který vyčte všechny kategorie-->
+-                <a href="#a">Link 1</a>
+-                <a href="#b">Link 2</a>
+-                <a href="#c">Link 3</a>
+-                <a href="#a">Link 1</a>
+-                <a href="#b">Link 2</a>
+-                <a href="#c">Link 3</a>
+-                <a href="#a">Link 1</a>
+-                <a href="#b">Link 2</a>
+-                <a href="#c">Link 3</a>
+-                <a href="#a">Link 1</a>
+-                <a href="#b">Link 2</a>
+-                <a href="#c">Link 3</a>
+-            </div>
+-        </div>
+-
+-        <div class="notes">
+-        <div class="note">
+-            <h3>Note název</h3>
+-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet volutpat consequat mauris nunc congue nisi vitae. A diam maecenas sed enim ut sem. Elementum curabitur vitae nunc sed velit dignissim. Leo in vitae turpis massa sed. Viverra orci sagittis eu volutpat odio. Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus. Sollicitudin tempor id eu nisl nunc. Imperdiet sed euismod nisi porta. Id porta nibh venenatis cras. Auctor urna nunc id cursus metus aliquam eleifend mi. Lobortis scelerisque fermentum dui faucibus in. Enim diam vulputate ut pharetra sit. Aenean pharetra magna ac placerat vestibulum lectus mauris. In cursus turpis massa tincidunt dui. Vitae justo eget magna fermentum iaculis eu non diam phasellus.
+-
+-            Auctor eu augue ut lectus arcu bibendum at. Viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est. Sollicitudin aliquam ultrices sagittis orci a. Mattis vulputate enim nulla aliquet porttitor lacus luctus. Fermentum dui faucibus in ornare quam viverra orci. Morbi tempus iaculis urna id. Ut aliquam purus sit amet luctus venenatis. Imperdiet proin fermentum leo vel. Montes nascetur ridiculus mus mauris. Erat velit scelerisque in dictum non consectetur a erat nam. Varius vel pharetra vel turpis. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Egestas sed tempus urna et pharetra pharetra massa.
+-
+-            Tincidunt augue interdum velit euismod in pellentesque. Ultrices eros in cursus turpis massa tincidunt dui ut. Eget sit amet tellus cras adipiscing. Egestas dui id ornare arcu odio ut sem. Neque egestas congue quisque egestas diam in arcu cursus. Aliquam nulla facilisi cras fermentum odio eu. Diam sit amet nisl suscipit adipiscing. Eget nullam non nisi est sit amet facilisis. Enim nulla aliquet porttitor lacus. Cras fermentum odio eu feugiat pretium. At imperdiet dui accumsan sit amet nulla facilisi morbi tempus.
+-
+-            Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Viverra aliquet eget sit amet tellus cras. Non quam lacus suspendisse faucibus interdum posuere lorem. Magna eget est lorem ipsum dolor sit. Dapibus ultrices in iaculis nunc. Velit ut tortor pretium viverra suspendisse potenti. A condimentum vitae sapien pellentesque. Vel turpis nunc eget lorem dolor sed viverra. Donec ultrices tincidunt arcu non sodales neque sodales. Ultricies integer quis auctor elit sed vulputate mi sit. Ultrices mi tempus imperdiet nulla malesuada pellentesque. Egestas purus viverra accumsan in nisl nisi scelerisque. Volutpat ac tincidunt vitae semper quis. Libero nunc consequat interdum varius. Risus commodo viverra maecenas accumsan lacus vel.
+-
+-            Vehicula ipsum a arcu cursus vitae congue mauris rhoncus aenean. Vitae suscipit tellus mauris a diam maecenas sed. Mattis ullamcorper velit sed ullamcorper. Diam phasellus vestibulum lorem sed. Natoque penatibus et magnis dis parturient montes. Nisl nunc mi ipsum faucibus. Senectus et netus et malesuada. Gravida cum sociis natoque penatibus et magnis dis parturient. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Eget nulla facilisi etiam dignissim.
+-        </div>
+-
+-            <div class="note">
+-                <h3>Hello</h3>
+-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet volutpat consequat mauris nunc congue nisi vitae. A diam maecenas sed enim ut sem. Elementum curabitur vitae nunc sed velit dignissim. Leo in vitae turpis massa sed. Viverra orci sagittis eu volutpat odio. Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus. Sollicitudin tempor id eu nisl nunc. Imperdiet sed euismod nisi porta. Id porta nibh venenatis cras. Auctor urna nunc id cursus metus aliquam eleifend mi. Lobortis scelerisque fermentum dui faucibus in. Enim diam vulputate ut pharetra sit. Aenean pharetra magna ac placerat vestibulum lectus mauris. In cursus turpis massa tincidunt dui. Vitae justo eget magna fermentum iaculis eu non diam phasellus.
+-
+-            </div>
+-        </div>
+-    </div>
+-
+-</main>
+-
+-</body>
+-</html>
+\ No newline at end of file
+Index: signin.html
+===================================================================
+diff --git a/signin.html b/signin.html
+deleted file mode 100644
+--- a/signin.html	
++++ /dev/null	
+@@ -1,25 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-  <meta charset="UTF-8">
+-  <link rel="stylesheet" href="signin_stylesheet.css">
+-  <title>Sign In</title>
+-</head>
+-<body>
+-
+-<main>
+-
+-  <div class="form">
+-    <form>
+-      <label for="name">Name:</label><br>
+-      <input type="text" id="name" name="name"><br>
+-      <label for="password">Password:</label><br>
+-      <input type="password" id="password" name="password"><br>
+-      <input type="submit" id="submit" value="Sign In"><br>
+-    </form>
+-  </div>
+-
+-</main>
+-
+-</body>
+-</html>
+\ No newline at end of file
