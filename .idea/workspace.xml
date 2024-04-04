@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="Index &amp; Settings css made">
+    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="User login required, tested, working on every page">
+      <change afterPath="$PROJECT_DIR$/settings_functions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings_stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_required.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/user_required.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +22,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -111,7 +110,7 @@
       <workItem from="1712054828764" duration="1615000" />
       <workItem from="1712153759734" duration="7000" />
       <workItem from="1712156193612" duration="11534000" />
-      <workItem from="1712236579488" duration="4780000" />
+      <workItem from="1712236579488" duration="11745000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1711805198103</created>
@@ -169,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1712253457408</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="User login required, tested, working on every page">
+      <created>1712256545248</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1712256545248</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,7 +197,8 @@
     <MESSAGE value="First PHP commit, working login" />
     <MESSAGE value="Header CSS made" />
     <MESSAGE value="Index &amp; Settings css made" />
-    <option name="LAST_COMMIT_MESSAGE" value="Index &amp; Settings css made" />
+    <MESSAGE value="User login required, tested, working on every page" />
+    <option name="LAST_COMMIT_MESSAGE" value="User login required, tested, working on every page" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

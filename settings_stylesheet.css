@@ -1,0 +1,54 @@
+body {
+    background-color: #c8443c;
+}
+
+main {
+    height: 90%;
+    width: 98%;
+    position: fixed;
+    top: 10%;
+    left: 1%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.window {
+    width: 48%;
+    height: 82%;
+    background-color: #ffe8c9;
+
+    overflow: auto;
+}
+
+.columns {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.window h2 {
+    padding: 0 15px;
+}
+
+.window_text {
+    padding: 0 15px;
+}
+
+.column2 {
+    width: 45%;
+    height: 100%;
+    border: #c8443c solid 1px;
+    overflow: auto;
+
+}
+
+li {
+    padding: 1px;
+}
+
+.users {
+    overflow: auto;
+}
