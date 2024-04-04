@@ -1,0 +1,33 @@
+body {
+    background-color: #c8443c;
+}
+
+main {
+    height: 90%;
+    width: 100%;
+    position: fixed;
+    top: 10%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.window {
+    width: 96%;
+    height: 82%;
+    background-color: #ffe8c9;
+    position: fixed;
+    left: 2%;
+    top: 14%;
+}
+
+.window h2 {
+    padding: 0 15px;
+
+
+}
+
+.window_text {
+    padding: 0 15px;
+
+}
