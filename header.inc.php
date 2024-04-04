@@ -69,9 +69,9 @@
 
 <body>
 <header>
-
+    <a href="index.php">Home</a>
     <a href="settings.php">Settings</a>
-    <a href="#">Group 1</a>
+    <a href="group.php">Real Group</a>
     <a href="#">Group 2</a>
     <a href="#">Group 3</a>
     <a href="#">Group 1</a>
