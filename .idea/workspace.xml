@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="User login required, tested, working on every page">
-      <change afterPath="$PROJECT_DIR$/settings_functions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings_stylesheet.css" afterDir="false" />
+    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="Create user a user výčet, potřeba upravit CSS">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings.php" afterDir="false" />
     </list>
@@ -110,7 +108,8 @@
       <workItem from="1712054828764" duration="1615000" />
       <workItem from="1712153759734" duration="7000" />
       <workItem from="1712156193612" duration="11534000" />
-      <workItem from="1712236579488" duration="11745000" />
+      <workItem from="1712236579488" duration="12218000" />
+      <workItem from="1712305940537" duration="7761000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1711805198103</created>
@@ -175,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1712256545248</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Create user a user výčet, potřeba upravit CSS">
+      <created>1712265690660</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1712265690660</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,7 +204,8 @@
     <MESSAGE value="Header CSS made" />
     <MESSAGE value="Index &amp; Settings css made" />
     <MESSAGE value="User login required, tested, working on every page" />
-    <option name="LAST_COMMIT_MESSAGE" value="User login required, tested, working on every page" />
+    <MESSAGE value="Create user a user výčet, potřeba upravit CSS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create user a user výčet, potřeba upravit CSS" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
