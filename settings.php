@@ -197,13 +197,59 @@ if (!empty($_POST)){
             <div class="column2">
                 <h3>Groups</h3>
                 <?php
-                $query = $db ->prepare("SELECT group_name FROM groups");
+                $query = $db ->prepare("SELECT groups.group_id, groups.group_name, users.user_id, users.user_name
+FROM groups
+JOIN rel_user_group ON groups.group_id = rel_user_group.group_id
+JOIN users ON rel_user_group.user_id = users.user_id
+ORDER BY groups.group_name, users.user_name");
                 $query->execute();
-                $groups = $query ->fetchAll(PDO::FETCH_ASSOC);
-                if(!empty($groups)){
-                    foreach ($groups as $group){
-                        $group_name = $group['group_name'];
-                        echo"<li>$group_name<br>";
+                $rows = $query ->fetchAll(PDO::FETCH_ASSOC);
+
+                if(!empty($rows)) {
+
+                    foreach ($rows as $row) {
+
+                        $group_name = $row['group_name'];
+                        $group_id = $row['group_id'];
+                        $user_name = $row['user_name'];
+                        $user_id = $row['user_id'];
+
+                        $grouped_groups[$group_name][] = ['user_id' => $row['user_id'], 'user_name' => $row['user_name']];
+
+                    }
+
+                    foreach ($grouped_groups as $groupName => $groupUsers) {
+                        echo "<h2>$groupName</h2>";
+
+                        $stmt = $db->prepare("SELECT user_name, user_id FROM users ");
+                        $stmt->execute();
+                        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+                        //TODO
+                        //finish adding new players
+                        // just create submit button and throw the ids through together
+                        ?>
+                        <form method='post'>
+                        <label for='user_id'>Select user:</label>
+                        <select name='user_id' id='user_id'>
+                        <?php foreach ($users as $user): ?>
+                            <option value=" <?php echo $user['user_id']; ?>">
+                                <?php echo $user['user_name']; ?>
+                            </option>
+                            <?php endforeach; ?>
+                        </select>
+                        </form>
+
+                        <?php
+
+
+
+                        foreach ($groupUsers as $userData) {
+                            echo "<li>{$userData['user_name']} (ID: {$userData['user_id']})<br>";
+                        }
+
                     }
                 }
                 ?>
