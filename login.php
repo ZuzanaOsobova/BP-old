@@ -1,5 +1,5 @@
 <?php
-session_start();
+@session_start();
 require "database_connection.inc.php";
 
 //database check

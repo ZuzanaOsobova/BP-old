@@ -1,6 +1,6 @@
 <?php
 include "database_connection.inc.php";
-session_start();
+@session_start();
 
 if(!isset($_SESSION["user_id"])){
     //uživatel není přihlášen => přesměrujeme ho na přihlašovací stránku

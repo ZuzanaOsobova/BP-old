@@ -4,5 +4,4 @@ $db = new PDO('mysql:host=localhost;dbname=flabbergasted;charset=utf8', 'admin',
 
 //vyhazuje výjimky v případě neplatného SQL výrazu
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-echo 'Connected to the database successfully!';
 ?>

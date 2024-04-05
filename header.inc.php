@@ -1,11 +1,16 @@
 <?php
 
+include "user_required.inc.php";
+include "database_connection.inc.php";
+
 /* TODO LIST
 - výpis všech skupin
 - nastavení pro admina
 - logout tlačítko
 -
  *  */
+
+$user_id = @$_SESSION['user_id'];
 
 ?>
 <!DOCTYPE html>
@@ -70,16 +75,33 @@
 <body>
 <header>
     <a href="index.php">Home</a>
-    <a href="settings.php">Settings</a>
-    <a href="group.php">Real Group</a>
-    <a href="#">Group 2</a>
-    <a href="#">Group 3</a>
-    <a href="#">Group 1</a>
-    <a href="#">Group 2</a>
-    <a href="#">Group 3</a>
-    <a href="#">Group 1</a>
-    <a href="#">Group 2</a>
-    <a href="#">Group 3</a>
+    <?php
+
+    if ($user_id == 1){
+        echo "<a href='settings.php'>Settings</a>";
+    }
+
+
+    $query = $db ->prepare("SELECT groups.group_id, groups.group_name 
+FROM groups 
+    JOIN rel_user_group ON rel_user_group.group_id = groups.group_id 
+WHERE rel_user_group.user_id = ?");
+    $query->execute([$user_id]);
+    $groups = $query ->fetchAll(PDO::FETCH_ASSOC);
+
+
+    if(!empty($groups)){
+        foreach ($groups as $group){
+            $group_name = $group['group_name'];
+            $group_id = $group['group_id'];
+
+            echo "<a href='group.php?group_id=$group_id'> $group_name</a>";
+        }
+    }
+
+    ?>
+
+
     <a href="logout.php" id="logout">Log Out</a>
 
 </header>

@@ -5,6 +5,11 @@ include "database_connection.inc.php";
 
 $user_id = @$_SESSION['user_id'];
 
+//Is User admin
+if ($user_id != 1){
+    header('Location: index.php');
+}
+
 //Making new user
 if (!empty($_POST)){
 
@@ -33,6 +38,9 @@ if (!empty($_POST)){
             header('Location:settings.php');
         }
     }
+
+
+
 
     if (isset($_POST['group_name'])){
         $group_name = htmlspecialchars(trim($_POST['group_name']));
