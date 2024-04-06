@@ -39,8 +39,6 @@ if (!empty($_POST['form_type'])){
         header('Location:group.php?group_id='.$group_id);
 
 
-
-
     }
 
 }
@@ -103,7 +101,7 @@ if (!empty($_POST['form_type'])){
             <h2 class="dropdown-hover">
                 Categories
                 <button id="showFormButton" onclick="">New Category</button>
-                <form id="hiddenForm" style="display: none">
+                <form id="hiddenForm" method="post" style="display: none">
                     <input type="hidden" name="form_type" value="new_category">
                     <input type="hidden" name="group_id" value="<?php echo $group_id ?>">
                     <input type="text" name="category">
