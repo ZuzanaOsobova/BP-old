@@ -11,10 +11,11 @@ if ($user_id != 1){
 }
 
 //Making new user
-if (!empty($_POST)){
+if (!empty($_POST['form_type'])){
 
+    $form_type = $_POST['form_type'];
 
-    if (isset($_POST['user_name'])){
+    if ($form_type == "create_user"){
 
         $user_name = htmlspecialchars(trim($_POST['user_name']));
         $password = htmlspecialchars($_POST['password']);
@@ -37,12 +38,9 @@ if (!empty($_POST)){
             $stmt->execute([$user_name, $passwordHash]);
             header('Location:settings.php');
         }
-    }
 
+    } elseif ($form_type == 'create_group') {
 
-
-
-    if (isset($_POST['group_name'])){
         $group_name = htmlspecialchars(trim($_POST['group_name']));
         $group_upgrades = $_POST['group_upgrade'];
 
@@ -56,7 +54,6 @@ if (!empty($_POST)){
         }
 
         if (empty($errors)){
-            //tvorba nové skupin, edit skupiny nesmí mít renown a readies
             $group_renown = 0;
             $group_readies = 0;
 
@@ -84,6 +81,28 @@ if (!empty($_POST)){
         }
     }
 
+    elseif ($form_type == 'add_user'){
+
+        $user_id = $_POST['user_id'];
+        $group_id = $_POST['group_id'];
+
+
+        $stmt = $db->prepare("SELECT rel_user_group.user_group_id FROM rel_user_group 
+                                    WHERE rel_user_group.group_id = ? AND rel_user_group.user_id = ? 
+                                    LIMIT 1");
+        $stmt->execute([$group_id, $user_id]);
+
+        if ($stmt ->rowCount() >0){
+            header('Location:settings.php');
+
+        } else {
+            $stmt = $db->prepare("INSERT INTO rel_user_group (group_id, user_id) VALUES (?, ?)");
+            $stmt->execute([$group_id, $user_id]);
+        }
+
+
+
+    }
 
 }
 
@@ -112,6 +131,9 @@ if (!empty($_POST)){
             <div class="column2">
                 <h3>Add new user</h3>
                 <form method="post">
+
+                    <input type="hidden" name="form_type" value="create_user">
+
                     <label for="user_name">Name:</label><br>
                     <?php if (!empty($errors['username'])): ?>
                         <div style="color: red" class="invalid-feedback"><?php echo $errors['username']; ?></div>
@@ -175,6 +197,9 @@ if (!empty($_POST)){
                 <h3>Add new group</h3>
 
                 <form method="post">
+
+                    <input type="hidden" name="form_type" value="create_group">
+
                     <label for="group_name">Group Name:</label><br>
                     <?php if (!empty($errors['group_name'])): ?>
                         <div style="color: red" class="invalid-feedback"><?php echo $errors['group_name']; ?></div>
@@ -197,13 +222,58 @@ if (!empty($_POST)){
             <div class="column2">
                 <h3>Groups</h3>
                 <?php
-                $query = $db ->prepare("SELECT group_name FROM groups");
+                $query = $db ->prepare("SELECT groups.group_id, groups.group_name, users.user_id, users.user_name
+FROM groups
+JOIN rel_user_group ON groups.group_id = rel_user_group.group_id
+JOIN users ON rel_user_group.user_id = users.user_id
+ORDER BY groups.group_name, users.user_name");
                 $query->execute();
-                $groups = $query ->fetchAll(PDO::FETCH_ASSOC);
-                if(!empty($groups)){
-                    foreach ($groups as $group){
-                        $group_name = $group['group_name'];
-                        echo"<li>$group_name<br>";
+                $rows = $query ->fetchAll(PDO::FETCH_ASSOC);
+
+                if(!empty($rows)) {
+
+                    foreach ($rows as $row) {
+
+                        $group_name = $row['group_name'];
+                        $group_id = $row['group_id'];
+                        $user_name = $row['user_name'];
+                        $user_id = $row['user_id'];
+
+                        $grouped_groups[$group_name][] = ['user_id' => $row['user_id'], 'user_name' => $row['user_name'], 'group_id' => $row['group_id']];
+
+                    }
+
+                    foreach ($grouped_groups as $groupName => $groupUsers) {
+                        echo "<h4>$groupName</h4>";
+
+                        $group_id = $groupUsers[0]['group_id'];
+
+                        $stmt = $db->prepare("SELECT user_name, user_id FROM users ");
+                        $stmt->execute();
+                        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                        ?>
+                        <form method='post'>
+
+                            <input type="hidden" name="form_type" value="add_user">
+
+                            <input type="hidden" name="group_id" value="<?php echo $group_id ?>">
+
+                        <label for='user_id'>Select user:</label>
+                        <select name='user_id' id='user_id'>
+                        <?php foreach ($users as $user): ?>
+                            <option value=" <?php echo $user['user_id']; ?>">
+                                <?php echo $user['user_name']; ?>
+                            </option>
+                            <?php endforeach; ?>
+                        </select>
+                            <input type="submit" id="submit" value="Add user">
+                        </form>
+
+                        <?php
+                        foreach ($groupUsers as $userData) {
+                            echo "<li>{$userData['user_name']} (ID: {$userData['user_id']})<br>";
+                        }
                     }
                 }
                 ?>
