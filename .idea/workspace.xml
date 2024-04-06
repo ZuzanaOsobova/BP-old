@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="Adding categories works">
+    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="Categories adding and choosing works">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TODO LIST" beforeDir="false" afterPath="$PROJECT_DIR$/TODO LIST" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group.php" beforeDir="false" afterPath="$PROJECT_DIR$/group.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -224,7 +225,21 @@
       <option name="project" value="LOCAL" />
       <updated>1712417044904</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Categories adding and choosing works">
+      <created>1712418885840</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1712418885840</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Categories adding and choosing works">
+      <created>1712418899848</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1712418899848</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,7 +268,8 @@
     <MESSAGE value="Added group and group users showing, added dropdown menu of all users existing, gotta add submit button and SQL to add users to groups" />
     <MESSAGE value="Started working on adding categories, the code seems fine, but does not work, syntax should be fine too" />
     <MESSAGE value="Adding categories works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding categories works" />
+    <MESSAGE value="Categories adding and choosing works" />
+    <option name="LAST_COMMIT_MESSAGE" value="Categories adding and choosing works" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
