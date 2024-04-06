@@ -98,8 +98,7 @@ if (!empty($_POST['form_type'])){
     <div class="column">
 
         <div class="dropdown">
-            <h2 class="dropdown-hover">
-                Categories
+            <h2 class="dropdown-hover">Categories
                 <button id="showFormButton" onclick="">New Category</button>
                 <form id="hiddenForm" method="post" style="display: none">
                     <input type="hidden" name="form_type" value="new_category">
@@ -109,19 +108,18 @@ if (!empty($_POST['form_type'])){
                 </form>
             </h2> <!--název bude vždy categories - jméno aktegorie, ve které zrovna jsme -->
             <div class="dropdown-content">
-                <!-- zde bude PHP nebo JavaScrip, který vyčte všechny kategorie-->
-                <a href="#a">Link 1</a>
-                <a href="#b">Link 2</a>
-                <a href="#c">Link 3</a>
-                <a href="#a">Link 1</a>
-                <a href="#b">Link 2</a>
-                <a href="#c">Link 3</a>
-                <a href="#a">Link 1</a>
-                <a href="#b">Link 2</a>
-                <a href="#c">Link 3</a>
-                <a href="#a">Link 1</a>
-                <a href="#b">Link 2</a>
-                <a href="#c">Link 3</a>
+                <?php
+                $query = $db ->prepare("SELECT category_name, category_id FROM categories WHERE group_id = ?");
+                $query->execute([$group_id]);
+                $categories = $query ->fetchAll(PDO::FETCH_ASSOC);
+                if(!empty($categories)){
+                    foreach ($categories as $category){
+                        $category_name = $category['category_name'];
+                        $category_id = $category['category_id'];
+                        echo"<a href='#category=$category_id'>$category_name</a>";
+                    }
+                }
+                ?>
             </div>
         </div>
 
@@ -132,8 +130,8 @@ if (!empty($_POST['form_type'])){
                     Note content
                 </div>
             </div>
-
         </div>
+
     </div>
 
 </main>
