@@ -5,6 +5,39 @@ include "database_connection.inc.php";
 
 $current_page = "group_name"; /* připsat PHP, které bude měnit jméno */
 
+$group_id = $_GET["group_id"];
+
+
+if (!empty($_POST['form_type'])){
+
+    $form_type = $_POST['form_type'];
+
+
+    if ($form_type == "new_category"){
+
+        $newCategoryName = htmlspecialchars(trim($_POST["category"]));
+        $group_id = $_POST['group_id'];
+
+        $stmt = $db->prepare("SELECT * FROM categories WHERE categories.group_id = ? AND category_name = ? ");
+        $stmt->execute([$group_id, $newCategoryName]);
+
+        if ($stmt->rowCount() <= 0) {
+
+            $stmt = $db->prepare("INSERT INTO categories (group_id, category_name) VALUES (?, ?)");
+            $stmt->execute([$group_id, $newCategoryName]);
+
+        }
+        header('Location:group.php?group_id='.$group_id);
+
+    }
+
+}
+
+
+
+
+
+
 
 ?>
 
@@ -13,6 +46,9 @@ $current_page = "group_name"; /* připsat PHP, které bude měnit jméno */
 
 <head>
     <link rel="stylesheet" href="group_stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="group_javascript.js"></script>
+
 </head>
 
 <body>
@@ -52,7 +88,16 @@ $current_page = "group_name"; /* připsat PHP, které bude měnit jméno */
     <div class="column">
 
         <div class="dropdown">
-            <h2 class="dropdown-hover">Categories</h2> <!--název bude vždy categories - jméno aktegorie, ve které zrovna jsme -->
+            <h2 class="dropdown-hover">
+                Categories
+                <button id="showFormButton" onclick="">New Category</button>
+                <form id="hiddenForm" style="display: none">
+                    <input type="hidden" name="form_type" value="new_category">
+                    <input type="hidden" name="group_id" value="<?php echo $group_id ?>">
+                    <input type="text" name="category">
+                    <input type="submit" value="submit">
+                </form>
+            </h2> <!--název bude vždy categories - jméno aktegorie, ve které zrovna jsme -->
             <div class="dropdown-content">
                 <!-- zde bude PHP nebo JavaScrip, který vyčte všechny kategorie-->
                 <a href="#a">Link 1</a>
