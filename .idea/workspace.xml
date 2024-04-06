@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="header showing only groups the user is part of, in case of admin, showing settings as well, supressed session_start() error messages with @">
+    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="Added group and group users showing, added dropdown menu of all users existing, gotta add submit button and SQL to add users to groups">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings.php" afterDir="false" />
     </list>
@@ -109,7 +109,8 @@
       <workItem from="1712153759734" duration="7000" />
       <workItem from="1712156193612" duration="11534000" />
       <workItem from="1712236579488" duration="12218000" />
-      <workItem from="1712305940537" duration="20265000" />
+      <workItem from="1712305940537" duration="20554000" />
+      <workItem from="1712392133367" duration="4355000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1711805198103</created>
@@ -195,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1712333067100</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added group and group users showing, added dropdown menu of all users existing, gotta add submit button and SQL to add users to groups">
+      <created>1712343426264</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1712343426264</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,7 +229,8 @@
     <MESSAGE value="Create user a user výčet, potřeba upravit CSS" />
     <MESSAGE value="Group create, včetně přidání relationshipu admin - group, a výčet groups" />
     <MESSAGE value="header showing only groups the user is part of, in case of admin, showing settings as well, supressed session_start() error messages with @" />
-    <option name="LAST_COMMIT_MESSAGE" value="header showing only groups the user is part of, in case of admin, showing settings as well, supressed session_start() error messages with @" />
+    <MESSAGE value="Added group and group users showing, added dropdown menu of all users existing, gotta add submit button and SQL to add users to groups" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added group and group users showing, added dropdown menu of all users existing, gotta add submit button and SQL to add users to groups" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
