@@ -27,6 +27,7 @@ if (!empty($_POST['form_type'])){
         $message = "new_category seen";
         echo "<script>console.log('$message');</script>";
 
+
         $stmt = $db->prepare("SELECT * FROM categories WHERE categories.group_id = ? AND category_name = ? ");
         $stmt->execute([$group_id, $newCategoryName]);
 
@@ -34,9 +35,11 @@ if (!empty($_POST['form_type'])){
             header('Location:group.php?group_id='.$group_id);
         }
 
-        $stmt = $db->prepare("INSERT INTO categories (group_id, category_name) VALUES (?, ?)");
-        $stmt->execute([$group_id, $newCategoryName]);
-        header('Location:group.php?group_id='.$group_id);
+        if (empty($errors)){
+            $stmt = $db->prepare("INSERT INTO categories (group_id, category_name) VALUES (?, ?)");
+            $stmt->execute([$group_id, $newCategoryName]);
+            header('Location:group.php?group_id='.$group_id);
+        }
 
 
     }
@@ -145,6 +148,9 @@ if (!empty($_POST['form_type'])){
                 <form id="hiddenForm" method="post" style="display: none">
                     <input type="hidden" name="form_type" value="new_category">
                     <input type="hidden" name="group_id" value="<?php echo $group_id ?>">
+                    <?php if (!empty($errors['category_name'])): ?>
+                        <div style="color: red" class="invalid-feedback"><?php echo $errors['category_name']; ?></div>
+                    <?php endif; ?>
                     <input type="text" name="category" required>
                     <input type="submit" id="submit" value="submit">
                 </form>
