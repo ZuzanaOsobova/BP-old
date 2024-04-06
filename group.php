@@ -7,10 +7,16 @@ $current_page = "group_name"; /* připsat PHP, které bude měnit jméno */
 
 $group_id = $_GET["group_id"];
 
+$message = "PHP works";
+echo "<script>console.log('$message'); console.log('$group_id')</script>";
+
 
 if (!empty($_POST['form_type'])){
 
     $form_type = $_POST['form_type'];
+
+    $message = "form_type seen";
+    echo "<script>console.log('$message');</script>";
 
 
     if ($form_type == "new_category"){
@@ -18,16 +24,22 @@ if (!empty($_POST['form_type'])){
         $newCategoryName = htmlspecialchars(trim($_POST["category"]));
         $group_id = $_POST['group_id'];
 
+        $message = "new_category seen";
+        echo "<script>console.log('$message');</script>";
+
         $stmt = $db->prepare("SELECT * FROM categories WHERE categories.group_id = ? AND category_name = ? ");
         $stmt->execute([$group_id, $newCategoryName]);
 
         if ($stmt->rowCount() <= 0) {
-
-            $stmt = $db->prepare("INSERT INTO categories (group_id, category_name) VALUES (?, ?)");
-            $stmt->execute([$group_id, $newCategoryName]);
-
+            header('Location:group.php?group_id='.$group_id);
         }
+
+        $stmt = $db->prepare("INSERT INTO categories (group_id, category_name) VALUES (?, ?)");
+        $stmt->execute([$group_id, $newCategoryName]);
         header('Location:group.php?group_id='.$group_id);
+
+
+
 
     }
 
@@ -95,7 +107,7 @@ if (!empty($_POST['form_type'])){
                     <input type="hidden" name="form_type" value="new_category">
                     <input type="hidden" name="group_id" value="<?php echo $group_id ?>">
                     <input type="text" name="category">
-                    <input type="submit" value="submit">
+                    <input type="submit" id="submit" value="submit">
                 </form>
             </h2> <!--název bude vždy categories - jméno aktegorie, ve které zrovna jsme -->
             <div class="dropdown-content">
