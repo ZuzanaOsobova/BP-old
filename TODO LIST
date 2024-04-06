@@ -13,6 +13,11 @@ Group
     - Vytvořit chat
     - dodělat Social Club PHP
 
+    - předělat, aby categories ukazovali jméno kategorie
+    - přidat button new note
+    - výpis notes v každé kategorii
+    - udělat tvorbu nových kategorií jméno povinné
+
 
 Login site
     - error message, že na tuhle stránku mohou pouze hráči, kteří již mají účet a hráč se má případně zeptat toho, kdo tuhle stránku zřizuje
