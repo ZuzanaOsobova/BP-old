@@ -161,26 +161,6 @@ if (!empty($_POST['form_type'])){
                         }
                     }
                     ?>
-                    <li>Name1</li>
-                    <li>Name1</li>
-                    <li>Name1</li>
-                    <li>Name1</li>
-                    <li>Name1</li>
-                    <li>Name1</li>
-                    <li>Name1</li>
-                    <li>Name1</li>
-                    <li>Name1</li>
-                    <li>Name1</li>
-                    <li>Name1</li>
-                    <li>Name1</li>
-                    <li>Name1</li>
-                    <li>Name1</li>
-                    <li>Name1</li>
-                    <li>Name1</li>
-                    <li>Name1</li>
-                    <li>Name1</li>
-                    <li>Name1</li>
-                    <li>Name1</li>
                 </div>
             </div>
 

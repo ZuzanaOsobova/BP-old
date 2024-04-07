@@ -1,5 +1,4 @@
 Hlavička
-    - vyčtení jednotlivých skupin, co hráč vidí
     - nastavit nějak, aby se celá stránka divně neresizovala
 
 Index
@@ -13,10 +12,7 @@ Group
     - Vytvořit chat
     - dodělat Social Club PHP
 
-    - předělat, aby categories ukazovali jméno kategorie
-    - přidat button new note
     - výpis notes v každé kategorii
-    - udělat tvorbu nových kategorií jméno povinné
 
 
 Login site
@@ -25,9 +21,8 @@ Login site
     - CSS border nebo udělej jeden výkus a použij border-image
 
 Nastavení pro admina
-    - tvorba uživatelů
-    - tvorba skupin
-    - edit uživatelů skupin
+    - edit uživatelů (jméno + heslo)
+    - edit skupin (odstranění uživatelů)
 
 
 Estetické věci

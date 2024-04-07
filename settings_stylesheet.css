@@ -23,6 +23,7 @@ main {
 }
 
 .columns {
+    height: 75%;
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
@@ -43,6 +44,13 @@ main {
     border: #c8443c solid 1px;
     overflow: auto;
 
+}
+
+.column2 h3 {
+    padding: 3%;
+    position: sticky;
+    top: 0;
+    background-color: #ffe8c9;
 }
 
 li {
