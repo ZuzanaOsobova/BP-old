@@ -7,8 +7,12 @@ $current_page = "group_name"; /* připsat PHP, které bude měnit jméno */
 
 $group_id = $_GET["group_id"];
 
-$message = "PHP works";
-echo "<script>console.log('$message'); console.log('$group_id')</script>";
+$stmt = $db->prepare("SELECT group_name FROM groups WHERE group_id = ? LIMIT 1");
+$stmt->execute([$group_id]);
+$group_name = $stmt ->fetchAll(PDO::FETCH_ASSOC);
+
+$group_name = $group_name[0]['group_name'];
+echo"<script>console.log('$group_name')</script>";
 
 
 if (!empty($_POST['form_type'])){
@@ -73,6 +77,8 @@ if (!empty($_POST['form_type'])){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="group_javascript.js"></script>
 
+    <title><?php echo $group_name;?></title>
+
 </head>
 
 <body>
@@ -81,7 +87,7 @@ if (!empty($_POST['form_type'])){
 
     <div class="column_chat">
         <div class="social_club">
-            <h2>The Social Club</h2>
+            <h2><?php echo $group_name;?></h2>
             <div class="social_club_content">
                 Hello
             </div>
