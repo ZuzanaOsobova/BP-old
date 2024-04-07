@@ -60,6 +60,16 @@ if (!empty($_POST['form_type'])){
         $stmt->execute([$category_id, $group_id, $note_name, $note_text]);
 
     }
+
+    if ($form_type == "edit_note"){
+        $note_id = $_POST['note_id'];
+        $note_name = htmlspecialchars(trim($_POST['note_name']));
+        $note_text = htmlspecialchars(trim($_POST['note_text']));
+
+        $stmt = $db->prepare("UPDATE notes SET note_name = ? , note_text = ? WHERE note_id = ?");
+        $stmt->execute([$note_name, $note_text, $note_id]);
+
+    }
 }
 
 
@@ -194,12 +204,32 @@ if (!empty($_POST['form_type'])){
                     $note_id = $note['note_id'];
 
                     echo "
+                    <div id='normal_note_$note_id'>
                     <div class='note'>
-                <h3>$note_name</h3>
-                <div class='note_content'>
-                    $note_text
-                </div>
-            </div>
+                    <h3>$note_name
+                    <button class='note_edit_button' onclick='' id='shown_note_edit_$note_id' data-note-id='$note_id'>Edit Note</button></h3>
+                        <div class='note_content'>
+                            $note_text
+                        </div>
+                    </div>
+                    </div>
+                    ";
+
+                    echo "
+                    
+                    <form method='post' id='hidden_note_edit_$note_id' style='display: none' data-note-id='$note_id'>
+                    <input type='hidden' name='note_id' value='$note_id'>
+                    <input type='hidden' name='form_type' value='edit_note'>
+                    <div class='note'>
+                    <h3><textarea id='note_name' name='note_name'>$note_name</textarea></h3>
+                    <div class='note_content'>
+                    <textarea name='note_text' id='note_text' required>$note_text</textarea>
+                    </div>
+                    
+                    <input type='submit' value='Save'>
+                    <button type='button' class='cancel_button' data-note-id='$note_id'>Cancel</button>                    
+                    </div>
+                    </form>
                     ";
                 }
             }
