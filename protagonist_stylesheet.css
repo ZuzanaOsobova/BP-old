@@ -1,0 +1,45 @@
+body {
+    background-color: #c8443c;
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    height: 90%;
+    width: 100%;
+    position: fixed;
+    top: 10%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.window {
+    width: 96%;
+    height: 82%;
+    background-color: #ffe8c9;
+    position: fixed;
+    left: 2%;
+    top: 14%;
+}
+
+.window h2 {
+    padding: 0 15px;
+
+
+}
+
+.window_text {
+    padding: 0 15px;
+
+}
+
+
+.column {
+    float: left;
+    width: 30%;
+    height: 90%;
+    background-color: #ffe8c9;
+    padding: 5px;
+}

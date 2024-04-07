@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="adding and showing notes under categories">
+    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="Editing notes, vypsané jsou vždy dva, jedno je plain text note, který je visible, a druhý je form s textem, který má display:none, přidány buttony edit, save a cancel, edit a cancel mají kód v javascriptu, aby správně reagovali a ukazovali věci, které mají, save button je PHP, který uloží nový text z edit části do databáze">
+      <change afterPath="$PROJECT_DIR$/protagonist.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/protagonist_stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group.php" beforeDir="false" afterPath="$PROJECT_DIR$/group.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group_javascript.js" beforeDir="false" afterPath="$PROJECT_DIR$/group_javascript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TODO LIST" beforeDir="false" afterPath="$PROJECT_DIR$/TODO LIST" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.inc.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,15 +23,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="categories" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -112,7 +114,7 @@
       <workItem from="1712236579488" duration="12218000" />
       <workItem from="1712305940537" duration="20554000" />
       <workItem from="1712392133367" duration="4355000" />
-      <workItem from="1712478391464" duration="15881000" />
+      <workItem from="1712478391464" duration="26352000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1711805198103</created>
@@ -275,7 +277,21 @@
       <option name="project" value="LOCAL" />
       <updated>1712487295696</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Editing notes, vypsané jsou vždy dva, jedno je plain text note, který je visible, a druhý je form s textem, který má display:none, přidány buttony edit, save a cancel, edit a cancel mají kód v javascriptu, aby správně reagovali a ukazovali věci, které mají, save button je PHP, který uloží nový text z edit části do databáze">
+      <created>1712505816635</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1712505816635</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Editing notes, vypsané jsou vždy dva, jedno je plain text note, který je visible, a druhý je form s textem, který má display:none, přidány buttony edit, save a cancel, edit a cancel mají kód v javascriptu, aby správně reagovali a ukazovali věci, které mají, save button je PHP, který uloží nový text z edit části do databáze">
+      <created>1712505884238</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1712505884238</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,7 +326,8 @@
     <MESSAGE value="minor estetická změna, users a groups v settings jsou normálně scrollable se sticky názvem" />
     <MESSAGE value="group_name edit" />
     <MESSAGE value="adding and showing notes under categories" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding and showing notes under categories" />
+    <MESSAGE value="Editing notes, vypsané jsou vždy dva, jedno je plain text note, který je visible, a druhý je form s textem, který má display:none, přidány buttony edit, save a cancel, edit a cancel mají kód v javascriptu, aby správně reagovali a ukazovali věci, které mají, save button je PHP, který uloží nový text z edit části do databáze" />
+    <option name="LAST_COMMIT_MESSAGE" value="Editing notes, vypsané jsou vždy dva, jedno je plain text note, který je visible, a druhý je form s textem, který má display:none, přidány buttony edit, save a cancel, edit a cancel mají kód v javascriptu, aby správně reagovali a ukazovali věci, které mají, save button je PHP, který uloží nový text z edit části do databáze" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

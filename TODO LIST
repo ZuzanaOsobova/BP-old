@@ -1,5 +1,6 @@
 Hlavička
     - nastavit nějak, aby se celá stránka divně neresizovala
+    - vrátit zpět user_requirement
 
 Index
     - Vítej zpět
@@ -8,7 +9,6 @@ Index
 
 Group
     - dodělat column kategorie a hráči PHP a JavaScript
-    - vytvořit column note (má vlastní nadpis a tělo, pro jednotlivé poznámky)
     - Vytvořit chat
     - dodělat Social Club PHP
 
