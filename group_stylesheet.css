@@ -77,6 +77,8 @@ main {
 .dropdown-hover {
     padding: 15px;
     margin-bottom: 0;
+    display: flex;
+    justify-content: space-evenly;
 
 }
 

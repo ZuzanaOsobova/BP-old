@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="minor estetická změna, users a groups v settings jsou normálně scrollable se sticky názvem">
+    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="group_name edit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group.php" beforeDir="false" afterPath="$PROJECT_DIR$/group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group_stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/group_stylesheet.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +112,7 @@
       <workItem from="1712236579488" duration="12218000" />
       <workItem from="1712305940537" duration="20554000" />
       <workItem from="1712392133367" duration="4355000" />
-      <workItem from="1712478391464" duration="3879000" />
+      <workItem from="1712478391464" duration="6236000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1711805198103</created>
@@ -260,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1712481142217</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="group_name edit">
+      <created>1712484928108</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1712484928108</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,7 +301,8 @@
     <MESSAGE value="New Note making" />
     <MESSAGE value="minor edit, category name required for creating category" />
     <MESSAGE value="minor estetická změna, users a groups v settings jsou normálně scrollable se sticky názvem" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor estetická změna, users a groups v settings jsou normálně scrollable se sticky názvem" />
+    <MESSAGE value="group_name edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="group_name edit" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

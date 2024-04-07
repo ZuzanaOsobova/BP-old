@@ -3,16 +3,17 @@ include "header.inc.php";
 include "user_required.inc.php";
 include "database_connection.inc.php";
 
-$current_page = "group_name"; /* připsat PHP, které bude měnit jméno */
 
 $group_id = $_GET["group_id"];
+
+$current_category = $_GET['category'];
 
 $stmt = $db->prepare("SELECT group_name FROM groups WHERE group_id = ? LIMIT 1");
 $stmt->execute([$group_id]);
 $group_name = $stmt ->fetchAll(PDO::FETCH_ASSOC);
 
 $group_name = $group_name[0]['group_name'];
-echo"<script>console.log('$group_name')</script>";
+echo"<script>console.log('$group_name'), console.log($current_category)</script>";
 
 
 if (!empty($_POST['form_type'])){
@@ -179,12 +180,33 @@ if (!empty($_POST['form_type'])){
         </div>
 
         <div class="notes">
-            <div class="note">
-                <h3>Note název</h3>
-                <div class="note_content">
-                    Note content
+
+            <?php
+            echo "<script>console.log($current_category)</script>";
+
+            $query = $db ->prepare("SELECT note_name, note_text, note_id FROM notes WHERE category_id = ?");
+            $query->execute([$current_category]);
+            $notes = $query ->fetchAll(PDO::FETCH_ASSOC);
+            if(!empty($notes)){
+                foreach ($notes as $note){
+                    $note_name = $note['note_name'];
+                    $note_text = $note['note_text'];
+                    $note_id = $note['note_id'];
+
+                    echo "
+                    <div class='note'>
+                <h3>$note_name</h3>
+                <div class='note_content'>
+                    $note_text
                 </div>
             </div>
+                    ";
+                }
+            }
+
+            ?>
+
+
         </div>
 
     </div>
