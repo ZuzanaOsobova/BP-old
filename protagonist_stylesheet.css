@@ -44,3 +44,9 @@ main {
     padding: 5px;
     overflow: auto;
 }
+
+textarea {
+    width: 98%;
+    height: 20%;
+    white-space: pre-wrap;
+}
