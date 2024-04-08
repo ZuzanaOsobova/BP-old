@@ -3,25 +3,49 @@ include "header.inc.php";
 //include "user_required.inc.php";
 include "database_connection.inc.php";
 
+$group_id = $_POST['group_id'];
 
-//TODO
-/* DONE - Character name
- * DONE - character class - SQL + dropdown form
- * character trait +- a základ na základě vybraného archetypu a počítadlo, kolik jich ještě mají a musí přidat
- * --
- * character info - základ textarea s doplěním věku, profese, title, vztahu a přezdívky (poznámka, nic z toho není povinné, ale alespoň něco)
- * DONE - character fyzický popis - text area
- * DONE - character mementos
- * DONE but gotta make CSS - character flaw - text area, ale možnost dropdown si vybrat???
- * DONE - character dilema
- * DONE - character background
- * --bude nastaveno samo--
- * character readies - nastaví se na začátku automaticky podle knihy
- * character stanting - mastaví se na začátku automaticky 0
- * character status - automaticky healthy
- * group_id - přenese se z url!!!
- *
- * */
+
+
+if (!empty($_POST['form'])){
+    $protagonist_name = (htmlspecialchars(trim($_POST['protagonist_name'])));
+
+
+    $protagonist_class = $_POST['protagonist_class'];
+
+
+    $protagonist_background = (htmlspecialchars(trim($_POST['protagonist_background'])));
+    $protagonist_info = (htmlspecialchars(trim($_POST['protagonist_info'])));
+    $protagonist_description = (htmlspecialchars(trim($_POST['protagonist_description'])));
+    $protagonist_dilemma = (htmlspecialchars(trim($_POST['protagonist_dilemma'])));
+    $protagonist_memento = (htmlspecialchars(trim($_POST['protagonist_memento'])));
+    $protagonist_flaw = (htmlspecialchars(trim($_POST['protagonist_flaw'])));
+
+    $protagonist_standing = "0";
+    $protagonist_status = "Healthy";
+
+    $group_id = $_POST['group_id'];
+
+    //TODO
+    // SOmething is wrong, I don't know what, I want to die
+
+    $stmt = $db->prepare("INSERT INTO protagonists (protagonist_name, archetype_id,  
+                          protagonist_background, protagonist_info, protagonist_description, 
+                          protagonist_dilemma, protagonist_mementos, protagonist_flaw, 
+                          protagonist_standing, protagonist_status, group_id) 
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$protagonist_name, $protagonist_class,
+        $protagonist_background, $protagonist_info, $protagonist_description,
+        $protagonist_dilemma, $protagonist_memento, $protagonist_flaw,
+        $protagonist_standing, $protagonist_status, $group_id]);
+
+
+    //TODO
+    //potřeba napsat foreach kód pro vložení tratů do rel_table, něco je na chatuGPT
+    //Co kdybych to udělala tak, že udělám foreach proces a v každé iteraci bych rovnou vložila nový SQL???
+
+}
+
 
 ?>
 
@@ -40,7 +64,8 @@ include "database_connection.inc.php";
 
     <div class="column">
         <h2>Protagonist creation</h2>
-        <form method="post">
+        <form method="post" id="form" name="form" value="form">
+            <input type="hidden" name="group_id" id="group_id" value="<?php echo $group_id ?>">
 
             <label for="protagonist_name"><b>Protagonist's name:</b></label><br>
             <?php if (!empty($errors['protagonist_name'])): ?>
@@ -48,7 +73,7 @@ include "database_connection.inc.php";
             <?php endif; ?>
             <input type="text" id="protagonist_name" name="protagonist_name" value="" required><br>
 
-            <label for="protagonist_class"><b>Choose a class:</b><br>Choose wisely, because your traits will change based on your class, and if you want to change them, you will have to click everything again.</label><br> <!-- přidat základní hodnotu aristocrat a přidat php pro classy -->
+            <label for="protagonist_class"><b>Choose a class:</b><br>Choose wisely, because your traits will change based on your class.</label><br> <!-- přidat základní hodnotu aristocrat a přidat php pro classy -->
 
             <?php
             $query = $db ->prepare("SELECT * FROM archetypes");
@@ -60,10 +85,17 @@ include "database_connection.inc.php";
             <select name="protagonist_class" id="protagonist_class">
                 <?php foreach ($archetypes as $archetype):
                     $archetype_readies = $archetype['archetype_readies'];
+                    $archetype_id = $archetype['archetype_id'];
+
+                    $archetype_info = [$archetype_id, $archetype_readies];
+
+
+
                     ?>
-                <option value="<?php echo $archetype['archetype_id'];?>">
+                <option value="<?php echo $archetype_id ;?>">
                     <?php echo $archetype['archetype_name']?>
                 </option>
+
                 <?php endforeach; ?>
             </select>
 
@@ -87,10 +119,6 @@ include "database_connection.inc.php";
                     }
                 });
             </script>
-
-
-
-            <!-- přidat trait maker, responsive pomocí javascriptu -->
 
     </div>
 
@@ -139,7 +167,7 @@ Relationship: (single/married/it's complicated and who is it)
 
     <div class="column">
 
-        <label for="protagonist_description"><b>How do you look?</b><br>Write out any distinct features for your Protagonist here.</label>
+        <label for="protagonist_description"><b>How do you look?</b><br>Write out any distinct features for your Protagonist here.</label><br>
         <input type="text" name="protagonist_description" id="protagonist_description"><br>
 
         <label for="protagonist_dilemma"><b>What is your dilema?</b><br>The dilema is na all-consumming burden that is a current fixture in your Protagonist's life, and at some point, sooner rather than later, they will have to adress it.</label><br>
@@ -154,7 +182,7 @@ Relationship: (single/married/it's complicated and who is it)
 
 
 
-        <input type="submit" value="Create Protagonist">
+        <input type="submit" id="submit" name="submit" value="Create Protagonist">
         </form>
     </div>
 

@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="CHoose class">
+    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="Class and trait finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protagonist.php" beforeDir="false" afterPath="$PROJECT_DIR$/protagonist.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protagonist_javascript.js" beforeDir="false" afterPath="$PROJECT_DIR$/protagonist_javascript.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protagonist_stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/protagonist_stylesheet.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +113,7 @@
       <workItem from="1712305940537" duration="20554000" />
       <workItem from="1712392133367" duration="4355000" />
       <workItem from="1712478391464" duration="26505000" />
-      <workItem from="1712565542315" duration="15792000" />
+      <workItem from="1712565542315" duration="22638000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1711805198103</created>
@@ -312,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1712577056577</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Class and trait finished">
+      <created>1712599733328</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1712599733328</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,7 +356,8 @@
     <MESSAGE value="Editing notes, vypsané jsou vždy dva, jedno je plain text note, který je visible, a druhý je form s textem, který má display:none, přidány buttony edit, save a cancel, edit a cancel mají kód v javascriptu, aby správně reagovali a ukazovali věci, které mají, save button je PHP, který uloží nový text z edit části do databáze" />
     <MESSAGE value="Create protagonist, začátek &lt;form&gt;, bude potřeba css, PHP a pár dalších věcí, přepsány flaws, potřeba traits + javascript" />
     <MESSAGE value="CHoose class" />
-    <option name="LAST_COMMIT_MESSAGE" value="CHoose class" />
+    <MESSAGE value="Class and trait finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="Class and trait finished" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -38,10 +38,10 @@ main {
 
 .column {
     float: left;
-    width: 30%;
-    height: 90%;
+    width: 25%;
+    height: 80%;
     background-color: #ffe8c9;
-    padding: 5px;
+    padding: 2.5%;
     overflow: auto;
 }
 
