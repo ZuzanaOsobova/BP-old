@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="Editing notes, vypsané jsou vždy dva, jedno je plain text note, který je visible, a druhý je form s textem, který má display:none, přidány buttony edit, save a cancel, edit a cancel mají kód v javascriptu, aby správně reagovali a ukazovali věci, které mají, save button je PHP, který uloží nový text z edit části do databáze">
-      <change afterPath="$PROJECT_DIR$/protagonist.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/protagonist_stylesheet.css" afterDir="false" />
+    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="Create protagonist, začátek &lt;form&gt;, bude potřeba css, PHP a pár dalších věcí, přepsány flaws, potřeba traits + javascript">
+      <change afterPath="$PROJECT_DIR$/protagonist_javascript.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TODO LIST" beforeDir="false" afterPath="$PROJECT_DIR$/TODO LIST" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protagonist.php" beforeDir="false" afterPath="$PROJECT_DIR$/protagonist.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -114,7 +112,8 @@
       <workItem from="1712236579488" duration="12218000" />
       <workItem from="1712305940537" duration="20554000" />
       <workItem from="1712392133367" duration="4355000" />
-      <workItem from="1712478391464" duration="26352000" />
+      <workItem from="1712478391464" duration="26505000" />
+      <workItem from="1712565542315" duration="4381000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1711805198103</created>
@@ -291,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1712505884238</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Create protagonist, začátek &lt;form&gt;, bude potřeba css, PHP a pár dalších věcí, přepsány flaws, potřeba traits + javascript">
+      <created>1712526792027</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1712526792027</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +333,8 @@
     <MESSAGE value="group_name edit" />
     <MESSAGE value="adding and showing notes under categories" />
     <MESSAGE value="Editing notes, vypsané jsou vždy dva, jedno je plain text note, který je visible, a druhý je form s textem, který má display:none, přidány buttony edit, save a cancel, edit a cancel mají kód v javascriptu, aby správně reagovali a ukazovali věci, které mají, save button je PHP, který uloží nový text z edit části do databáze" />
-    <option name="LAST_COMMIT_MESSAGE" value="Editing notes, vypsané jsou vždy dva, jedno je plain text note, který je visible, a druhý je form s textem, který má display:none, přidány buttony edit, save a cancel, edit a cancel mají kód v javascriptu, aby správně reagovali a ukazovali věci, které mají, save button je PHP, který uloží nový text z edit části do databáze" />
+    <MESSAGE value="Create protagonist, začátek &lt;form&gt;, bude potřeba css, PHP a pár dalších věcí, přepsány flaws, potřeba traits + javascript" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create protagonist, začátek &lt;form&gt;, bude potřeba css, PHP a pár dalších věcí, přepsány flaws, potřeba traits + javascript" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

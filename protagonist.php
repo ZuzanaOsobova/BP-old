@@ -30,6 +30,7 @@ include "database_connection.inc.php";
 
 <head>
     <link rel="stylesheet" href="protagonist_stylesheet.css">
+    <script src="protagonist_javascript.js"></script>
     <title>Protagonist Creation</title>
 
 </head>
@@ -41,16 +42,52 @@ include "database_connection.inc.php";
         <h2>Protagonist creation</h2>
         <form method="post">
 
-            <label for="protagonist_name">Protagonist's name:</label><br>
+            <label for="protagonist_name"><b>Protagonist's name:</b></label><br>
             <?php if (!empty($errors['protagonist_name'])): ?>
                 <div style="color: red" class="invalid-feedback"><?php echo $errors['protagonist_name']; ?></div>
             <?php endif; ?>
             <input type="text" id="protagonist_name" name="protagonist_name" value="" required><br>
 
-            <label for="protagonist_class">Choose a class:</label><br> <!-- přidat základní hodnotu aristocrat a přidat php pro classy -->
-            <select>
-                <option></option>
+            <label for="protagonist_class"><b>Choose a class:</b></label><br> <!-- přidat základní hodnotu aristocrat a přidat php pro classy -->
+
+            <?php
+            $query = $db ->prepare("SELECT * FROM archetypes");
+            $query->execute();
+            $archetypes = $query ->fetchAll(PDO::FETCH_ASSOC);
+
+            ?>
+
+            <select name="protagonist_class" id="protagonist_class">
+                <?php foreach ($archetypes as $archetype):
+                    $archetype_readies = $archetype['archetype_readies'];
+                    ?>
+                <option value="<?php echo $archetype['archetype_id'];?>">
+                    <?php echo $archetype['archetype_name']?>
+                </option>
+                <?php endforeach; ?>
             </select>
+
+            <p id="archetype_text"></p>
+
+            <!-- JS script pro ukazování textu k vybrané classe -->
+            <script>
+                var selectElement = document.getElementById("protagonist_class");
+                var archetypeTextElement = document.getElementById("archetype_text");
+
+                selectElement.addEventListener("change", function() {
+                    var selectedOption = selectElement.value;
+                    var selectedArchetype = <?php echo json_encode($archetypes); ?>.find(function(archetype) {
+                        return archetype.archetype_id == selectedOption;
+                    });
+
+                    if (selectedArchetype) {
+                        archetypeTextElement.textContent = selectedArchetype.archetype_text;
+                    } else {
+                        archetypeTextElement.textContent = "";
+                    }
+                });
+            </script>
+
 
 
             <!-- přidat trait maker, responsive pomocí javascriptu -->
@@ -91,7 +128,7 @@ include "database_connection.inc.php";
             <option value="Boisterous">Boisterous - You’re loud, brash, and everyone knows when you’ve entered a room. You tend to cause a ruckus wherever you go.</option>
             <option value="Show-Off">Show-Off - You have a myriad of achievements, possessions, and accomplishments. So why not show them off?</option>
             <option value="Shameless Flirt">Shameless Flirt - When you flirt with someone, they’ll know it. Flirting seems to be your default setting</option>
-            <option value="Foul_Mouthed">Foul_Mouthed - !”@* $!”</option>
+            <option value="Foul_Mouthed">Foul-Mouthed - !”@* $!”</option>
         </select>
 
 

@@ -42,4 +42,5 @@ main {
     height: 90%;
     background-color: #ffe8c9;
     padding: 5px;
+    overflow: auto;
 }
