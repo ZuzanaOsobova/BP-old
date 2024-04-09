@@ -43,12 +43,39 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $protagonist_dilemma, $protagonist_memento, $protagonist_flaw,
         $protagonist_standing, $protagonist_status, $group_id]);
 
+    //ID nového protagonisty
+    $protagonist_id = $db->lastInsertId();
+
+    $protagonist_readies = 0;
+
+    //Vkládání readies
+    switch ($protagonist_class){
+
+        case 1: $protagonist_readies = 80; break;
+        case 2: $protagonist_readies = 40; break;
+        case 3: $protagonist_readies = 60; break;
+        case 4: $protagonist_readies = 50; break;
+
+    }
+
+    $stmt = $db -> prepare("UPDATE protagonists SET protagonist_readies = ? WHERE protagonist_id = ?");
+    $stmt->execute([$protagonist_readies, $protagonist_id]);
+
+
+    //Update protagonist - traits table
+
+    $trait_ids = $_POST['trait_ids'];
+
+    foreach ($trait_ids as $trait_id){
+        $trait_value = intval($_POST['trait_'.$trait_id]);
+
+
+        $stmt = $db -> prepare("INSERT INTO rel_protagonist_trait (protagonist_id, trait_id, protagonist_trait_level) VALUES (?, ?, ?)");
+        $stmt->execute([$protagonist_id,$trait_id,$trait_value]);
+    }
 
     header("Location:index.php");
 
-    //TODO
-    //potřeba napsat foreach kód pro vložení tratů do rel_table, něco je na chatuGPT
-    //Co kdybych to udělala tak, že udělám foreach proces a v každé iteraci bych rovnou vložila nový SQL???
 
 }
 
@@ -148,6 +175,7 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             echo"
             <label for='trait_$trait_id'><b>$trait_name</b></label>
             <input type='number' name='trait_$trait_id' id='trait_$trait_id' min='1' max='5' value='1'><br>
+            <input type='hidden' name='trait_ids[]' value='$trait_id'>
             <p id='trait_description'>$trait_text</p>
             
             ";
