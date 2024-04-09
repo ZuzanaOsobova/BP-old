@@ -1,14 +1,9 @@
 <?php
 
-//include "user_required.inc.php";
+include "user_required.inc.php";
 include "database_connection.inc.php";
 
-/* TODO LIST
-- výpis všech skupin
-- nastavení pro admina
-- logout tlačítko
--
- *  */
+
 
 $user_id = @$_SESSION['user_id'];
 

@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="Class and trait finished">
+    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="Nothing is working, fuck everything">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protagonist.php" beforeDir="false" afterPath="$PROJECT_DIR$/protagonist.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protagonist_stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/protagonist_stylesheet.css" afterDir="false" />
     </list>
@@ -113,7 +114,8 @@
       <workItem from="1712305940537" duration="20554000" />
       <workItem from="1712392133367" duration="4355000" />
       <workItem from="1712478391464" duration="26505000" />
-      <workItem from="1712565542315" duration="22638000" />
+      <workItem from="1712565542315" duration="22846000" />
+      <workItem from="1712659349738" duration="4509000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1711805198103</created>
@@ -318,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1712599733328</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Nothing is working, fuck everything">
+      <created>1712613965467</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1712613965467</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -357,7 +366,8 @@
     <MESSAGE value="Create protagonist, začátek &lt;form&gt;, bude potřeba css, PHP a pár dalších věcí, přepsány flaws, potřeba traits + javascript" />
     <MESSAGE value="CHoose class" />
     <MESSAGE value="Class and trait finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="Class and trait finished" />
+    <MESSAGE value="Nothing is working, fuck everything" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nothing is working, fuck everything" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

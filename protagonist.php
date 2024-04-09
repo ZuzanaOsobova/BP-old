@@ -1,13 +1,16 @@
 <?php
 include "header.inc.php";
-//include "user_required.inc.php";
+include "user_required.inc.php";
 include "database_connection.inc.php";
 
-$group_id = $_POST['group_id'];
+$group_id = intval($_GET['group_id']);
 
 
 
-if (!empty($_POST['form'])){
+if (!empty($_POST['protagonist_class'])){
+
+    echo "<script>console.log('form started');</script>";
+
     $protagonist_name = (htmlspecialchars(trim($_POST['protagonist_name'])));
 
 
@@ -24,7 +27,8 @@ if (!empty($_POST['form'])){
     $protagonist_standing = "0";
     $protagonist_status = "Healthy";
 
-    $group_id = $_POST['group_id'];
+    $group_id = intval($_POST['group_id']);
+    echo "<script>console.log('$group_id');</script>";
 
     //TODO
     // SOmething is wrong, I don't know what, I want to die
@@ -39,6 +43,8 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $protagonist_dilemma, $protagonist_memento, $protagonist_flaw,
         $protagonist_standing, $protagonist_status, $group_id]);
 
+
+    header("Location:index.php");
 
     //TODO
     //potřeba napsat foreach kód pro vložení tratů do rel_table, něco je na chatuGPT
@@ -62,10 +68,13 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 <body>
 <main>
 
+    <form method="post">
+        <fieldset>
     <div class="column">
         <h2>Protagonist creation</h2>
-        <form method="post" id="form" name="form" value="form">
+
             <input type="hidden" name="group_id" id="group_id" value="<?php echo $group_id ?>">
+        <input type="hidden" name="fomr" id="form" value="form">
 
             <label for="protagonist_name"><b>Protagonist's name:</b></label><br>
             <?php if (!empty($errors['protagonist_name'])): ?>
@@ -119,7 +128,6 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                     }
                 });
             </script>
-
     </div>
 
     <div class="column">
@@ -183,8 +191,10 @@ Relationship: (single/married/it's complicated and who is it)
 
 
         <input type="submit" id="submit" name="submit" value="Create Protagonist">
-        </form>
+
     </div>
+    </fieldset>
+    </form>
 
 </main>
 </body>

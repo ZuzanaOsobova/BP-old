@@ -50,3 +50,27 @@ textarea {
     height: 20%;
     white-space: pre-wrap;
 }
+
+form{
+    height: 90%;
+    width: 100%;
+    position: fixed;
+    top: 10%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+fieldset{
+    height: 90%;
+    width: 100%;
+    position: fixed;
+    top: 10%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border: 0;
+
+}
