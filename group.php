@@ -172,63 +172,61 @@ if (!empty($_POST['form_type'])){
 
             $query = $db ->prepare("SELECT * FROM protagonists WHERE protagonist_id = ?");
             $query->execute([$current_protagonist]);
-            $protagonist = $query ->fetchAll(PDO::FETCH_ASSOC);
+            $protagonist = $query ->fetch(PDO::FETCH_ASSOC);
 
-            $protagonist_name = $protagonists['protagonist_name'];
-            $protagonist_info = $protagonists['protagonist_info'];
-            $protagonist_description = $protagonists['protagonist_description'];
-            $protagonist_mementos = $protagonists['protagonist_mementos'];
-            $protagonist_flaw = $protagonists['protagonist_flaw'];
-            $protagonist_background = $protagonists['protagonist_background'];
-            $archetype_readies = $protagonists['archetype_readies'];
-            $protagonist_standing = $protagonists['protagonist_standing'];
-            $protagonist_status = $protagonists['protagonist_status'];
+            if (!empty($protagonist)){
+                $protagonist_name = $protagonist['protagonist_name'];
+                $protagonist_info = $protagonist['protagonist_info'];
+                $protagonist_description = $protagonist['protagonist_description'];
+                $protagonist_mementos = $protagonist['protagonist_mementos'];
+                $protagonist_flaw = $protagonist['protagonist_flaw'];
+                $protagonist_background = $protagonist['protagonist_background'];
+                $protagonist_readies = $protagonist['protagonist_readies'];
+                $protagonist_standing = $protagonist['protagonist_standing'];
+                $protagonist_status = $protagonist['protagonist_status'];
 
-            $archetype_id = $protagonists['archetype_id'];
+                $archetype_id = $protagonist['archetype_id'];
 
-            $query = $db ->prepare("SELECT archetype_name FROM archetypes WHERE archetype_id = ?");
-            $query->execute([$archetype_id]);
-            $archetype = $query ->fetchAll(PDO::FETCH_ASSOC);
+                $query = $db ->prepare("SELECT archetype_name FROM archetypes WHERE archetype_id = ?");
+                $query->execute([$archetype_id]);
+                $archetype_names = $query ->fetch(PDO::FETCH_ASSOC);
 
-
-            if(!empty($notes)){
-                foreach ($notes as $note){
-                    $note_name = $note['note_name'];
-                    $note_text = $note['note_text'];
-                    $note_id = $note['note_id'];
-
-                    echo "
-                    <div id='normal_note_$note_id'>
-                    <div class='note'>
-                    <h3>$note_name
-                    <button class='note_edit_button' onclick='' id='shown_note_edit_$note_id' data-note-id='$note_id'>Edit Note</button></h3>
-                        <div class='note_content'>
-                            $note_text
-                        </div>
-                    </div>
-                    </div>
-                    ";
-
-                    echo "
-                    
-                    <form method='post' id='hidden_note_edit_$note_id' style='display: none' data-note-id='$note_id'>
-                    <input type='hidden' name='note_id' value='$note_id'>
-                    <input type='hidden' name='form_type' value='edit_note'>
-                    <div class='note'>
-                    <h3><textarea id='note_name' name='note_name'>$note_name</textarea></h3>
-                    <div class='note_content'>
-                    <textarea name='note_text' id='note_text' required>$note_text</textarea>
-                    </div>
-                    
-                    <input type='submit' value='Save'>
-                    <button type='button' class='cancel_button' data-note-id='$note_id'>Cancel</button>                    
-                    </div>
-                    </form>
-                    ";
+                if (!empty($archetype_names)){
+                    $archetype_name = $archetype_names['archetype_name'];
                 }
+
+
+
+                echo "
+                <div id='character_info'>
+                <p><b>Archetype:</b> $archetype_name</p><br>
+                <p><b>Protagonist info:</b><br> $protagonist_info</p><br>
+                <p><b>Background info:</b><br> $protagonist_background</p><br>
+                <p><b>Protagonist Description:</b><br> $protagonist_description</p><br>
+                <p><b>Protagonist's readies:</b> $protagonist_readies</p><br>
+                <p><b>Protagonist's memento:</b> $protagonist_mementos</p><br>
+                <p><b>Protagonist's flaw:</b> $protagonist_flaw</p><br>
+                <p><b>Protagonist's status:</b> $protagonist_status</p><br>
+                <p><b>Protagonist's standing:</b> $protagonist_standing</p><br>
+
+            </div>
+                ";
+
+
+                echo "
+                <div id='character_edit' style='display: none'>
+                
+                </div>
+                ";
+
+
+
             }
 
+
             ?>
+
+
 
         </div>
 

@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="The create protagonist is sending data through">
+    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="Protagonists showing in group, need to show protagonist info a create edit protagonist">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group.php" beforeDir="false" afterPath="$PROJECT_DIR$/group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group_stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/group_stylesheet.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1712665967125</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Protagonists showing in group, need to show protagonist info a create edit protagonist">
+      <created>1712684250468</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1712684250468</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,7 +381,8 @@
     <MESSAGE value="Class and trait finished" />
     <MESSAGE value="Nothing is working, fuck everything" />
     <MESSAGE value="The create protagonist is sending data through" />
-    <option name="LAST_COMMIT_MESSAGE" value="The create protagonist is sending data through" />
+    <MESSAGE value="Protagonists showing in group, need to show protagonist info a create edit protagonist" />
+    <option name="LAST_COMMIT_MESSAGE" value="Protagonists showing in group, need to show protagonist info a create edit protagonist" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
