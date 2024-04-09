@@ -4,9 +4,10 @@ include "user_required.inc.php";
 include "database_connection.inc.php";
 
 
-$group_id = $_GET["group_id"];
+$group_id = intval($_GET["group_id"]);
 
 $current_category = $_GET['category'];
+$current_protagonist = $_GET['protagonist'];
 
 $stmt = $db->prepare("SELECT group_name FROM groups WHERE group_id = ? LIMIT 1");
 $stmt->execute([$group_id]);
@@ -115,14 +116,122 @@ if (!empty($_POST['form_type'])){
     <!-- druhý column, zde jsou postavy -->
     <div class="column">
         <div class="dropdown">
-            <h2 class="dropdown-hover">Characters</h2>
+            <h2 class="dropdown-hover">
+                <!-- phpko pro vypsání jména postavy, jako názvu, nebo jen Protagonists, pokud žádný není zvolený -->
+            <?php
+            @$protagonist_id = $_GET['protagonist'];
+
+            //Výpis názvu protagonisty
+            if (!empty($protagonist_id)){
+                $stmt = $db->prepare("SELECT protagonist_name FROM protagonists WHERE protagonist_id = ? LIMIT 1 ");
+                $stmt->execute([$protagonist_id]);
+
+                $protagonist_names = $stmt ->fetchAll(PDO::FETCH_ASSOC);
+
+                if (!empty($protagonist_names)){
+                    $protagonist_name = $protagonist_names[0]['protagonist_name'];
+                    echo "<script>console.log($protagonist_name)</script>";
+                    echo $protagonist_name;
+
+                }
+
+            } else {
+                echo "Protagonists";
+            }
+            ?>
+                <!-- forma, která nás pošle na tvorbu protagonisty spolu s potřebnými údaji -->
+                <form action="protagonist.php">
+                    <input type="hidden" name="group_id" value="<?php echo $group_id; ?>">
+                    <input type="submit" value="New Protagonist">
+                </form>
+            </h2>
+
+            <!-- výčet všech postav, které se ve skupině nacházejí -->
             <div class="dropdown-content">
-                <!-- zde bude PHP nebo JavaScrip, který vyčte všechny postavy-->
-                <a href="#a">Link 1</a>
-                <a href="#b">Link 2</a>
-                <a href="#c">Link 3</a>
+                <?php
+                $query = $db ->prepare("SELECT protagonist_name, protagonist_id FROM protagonists WHERE group_id = ?");
+                $query->execute([$group_id]);
+                $protagonists = $query ->fetchAll(PDO::FETCH_ASSOC);
+                if(!empty($protagonists)){
+                    foreach ($protagonists as $protagonist){
+                        $protagonist_name = $protagonist['protagonist_name'];
+                        $protagonist_id = $protagonist['protagonist_id'];
+                        echo"<a href='group.php?group_id=$group_id&protagonist=$protagonist_id'>$protagonist_name</a>";
+                    }
+                }
+                ?>
+
             </div>
         </div>
+
+
+        <div class="notes">
+
+            <?php
+            echo "<script>console.log($current_protagonist)</script>";
+
+            $query = $db ->prepare("SELECT * FROM protagonists WHERE protagonist_id = ?");
+            $query->execute([$current_protagonist]);
+            $protagonist = $query ->fetchAll(PDO::FETCH_ASSOC);
+
+            $protagonist_name = $protagonists['protagonist_name'];
+            $protagonist_info = $protagonists['protagonist_info'];
+            $protagonist_description = $protagonists['protagonist_description'];
+            $protagonist_mementos = $protagonists['protagonist_mementos'];
+            $protagonist_flaw = $protagonists['protagonist_flaw'];
+            $protagonist_background = $protagonists['protagonist_background'];
+            $archetype_readies = $protagonists['archetype_readies'];
+            $protagonist_standing = $protagonists['protagonist_standing'];
+            $protagonist_status = $protagonists['protagonist_status'];
+
+            $archetype_id = $protagonists['archetype_id'];
+
+            $query = $db ->prepare("SELECT archetype_name FROM archetypes WHERE archetype_id = ?");
+            $query->execute([$archetype_id]);
+            $archetype = $query ->fetchAll(PDO::FETCH_ASSOC);
+
+
+            if(!empty($notes)){
+                foreach ($notes as $note){
+                    $note_name = $note['note_name'];
+                    $note_text = $note['note_text'];
+                    $note_id = $note['note_id'];
+
+                    echo "
+                    <div id='normal_note_$note_id'>
+                    <div class='note'>
+                    <h3>$note_name
+                    <button class='note_edit_button' onclick='' id='shown_note_edit_$note_id' data-note-id='$note_id'>Edit Note</button></h3>
+                        <div class='note_content'>
+                            $note_text
+                        </div>
+                    </div>
+                    </div>
+                    ";
+
+                    echo "
+                    
+                    <form method='post' id='hidden_note_edit_$note_id' style='display: none' data-note-id='$note_id'>
+                    <input type='hidden' name='note_id' value='$note_id'>
+                    <input type='hidden' name='form_type' value='edit_note'>
+                    <div class='note'>
+                    <h3><textarea id='note_name' name='note_name'>$note_name</textarea></h3>
+                    <div class='note_content'>
+                    <textarea name='note_text' id='note_text' required>$note_text</textarea>
+                    </div>
+                    
+                    <input type='submit' value='Save'>
+                    <button type='button' class='cancel_button' data-note-id='$note_id'>Cancel</button>                    
+                    </div>
+                    </form>
+                    ";
+                }
+            }
+
+            ?>
+
+        </div>
+
     </div>
 
     <!--třetí column, ve kterém jsou schované kategorie a poznámky -->

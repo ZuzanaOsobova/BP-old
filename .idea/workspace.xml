@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="The create protagonist is sending data through">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protagonist.php" beforeDir="false" afterPath="$PROJECT_DIR$/protagonist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group.php" beforeDir="false" afterPath="$PROJECT_DIR$/group.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
