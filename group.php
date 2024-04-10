@@ -6,8 +6,9 @@ include "database_connection.inc.php";
 
 $group_id = intval($_GET["group_id"]);
 
-$current_category = $_GET['category'];
-$current_protagonist = $_GET['protagonist'];
+
+@$current_category = $_GET['category'];
+@$current_protagonist = $_GET['protagonist'];
 
 $stmt = $db->prepare("SELECT group_name FROM groups WHERE group_id = ? LIMIT 1");
 $stmt->execute([$group_id]);
@@ -69,6 +70,35 @@ if (!empty($_POST['form_type'])){
 
         $stmt = $db->prepare("UPDATE notes SET note_name = ? , note_text = ? WHERE note_id = ?");
         $stmt->execute([$note_name, $note_text, $note_id]);
+
+    }
+
+    if ($form_type == "edit_protagonist"){
+
+        $protagonist_id = intval($_POST['protagonist_id']);
+
+        $protagonist_name = htmlspecialchars($_POST['protagonist_name']);
+        $protagonist_info = htmlspecialchars($_POST['protagonist_info']);
+        $protagonist_description = htmlspecialchars($_POST['protagonist_description']);
+        $protagonist_mementos = htmlspecialchars($_POST['protagonist_mementos']);
+        $protagonist_flaw = htmlspecialchars($_POST['protagonist_flaw']);
+        $protagonist_dilemma = htmlspecialchars($_POST['protagonist_dilemma']);
+        $protagonist_background = htmlspecialchars($_POST['protagonist_background']);
+        $protagonist_readies = intval($_POST['protagonist_readies']);
+        $protagonist_standing = intval($_POST['protagonist_standing']);
+        $protagonist_status = htmlspecialchars($_POST['protagonist_status']);
+
+        $stmt = $db->prepare("UPDATE `protagonists` SET 
+                          `protagonist_name`= ?,`protagonist_info`= ?,`protagonist_description`= ?,
+                          `protagonist_mementos`= ?,`protagonist_flaw`= ?,`protagonist_dilemma`= ?,
+                          `protagonist_background`= ?,`protagonist_readies`= ?,`protagonist_standing`= ?,`protagonist_status`= ?
+                           WHERE protagonist_id = ?");
+        $stmt->execute([$protagonist_name, $protagonist_info, $protagonist_description,
+            $protagonist_mementos, $protagonist_flaw, $protagonist_dilemma,
+            $protagonist_background,  $protagonist_readies, $protagonist_standing, $protagonist_status,
+            $protagonist_id]);
+
+        header("Location:group.php?group_id=$group_id&protagonist=$protagonist_id&category=$current_category");
 
     }
 }
@@ -156,7 +186,7 @@ if (!empty($_POST['form_type'])){
                     foreach ($protagonists as $protagonist){
                         $protagonist_name = $protagonist['protagonist_name'];
                         $protagonist_id = $protagonist['protagonist_id'];
-                        echo"<a href='group.php?group_id=$group_id&protagonist=$protagonist_id'>$protagonist_name</a>";
+                        echo"<a href='group.php?group_id=$group_id&protagonist=$protagonist_id&category=$current_category'>$protagonist_name</a>";
                     }
                 }
                 ?>
@@ -180,6 +210,7 @@ if (!empty($_POST['form_type'])){
                 $protagonist_description = $protagonist['protagonist_description'];
                 $protagonist_mementos = $protagonist['protagonist_mementos'];
                 $protagonist_flaw = $protagonist['protagonist_flaw'];
+                $protagonist_dilemma = $protagonist['protagonist_dilemma'];
                 $protagonist_background = $protagonist['protagonist_background'];
                 $protagonist_readies = $protagonist['protagonist_readies'];
                 $protagonist_standing = $protagonist['protagonist_standing'];
@@ -196,9 +227,11 @@ if (!empty($_POST['form_type'])){
                 }
 
 
+                //potřeba dopsat SQL pro cues a traits
 
                 echo "
                 <div id='character_info'>
+                <input type='button' id='protagonist_edit_button' onclick='' value='Edit Protagonist'>
                 <p><b>Archetype:</b> $archetype_name</p><br>
                 <p><b>Protagonist info:</b><br> $protagonist_info</p><br>
                 <p><b>Background info:</b><br> $protagonist_background</p><br>
@@ -206,6 +239,7 @@ if (!empty($_POST['form_type'])){
                 <p><b>Protagonist's readies:</b> $protagonist_readies</p><br>
                 <p><b>Protagonist's memento:</b> $protagonist_mementos</p><br>
                 <p><b>Protagonist's flaw:</b> $protagonist_flaw</p><br>
+                <p><b>Protagonist's dilemma:</b> $protagonist_dilemma</p><br>
                 <p><b>Protagonist's status:</b> $protagonist_status</p><br>
                 <p><b>Protagonist's standing:</b> $protagonist_standing</p><br>
 
@@ -215,7 +249,46 @@ if (!empty($_POST['form_type'])){
 
                 echo "
                 <div id='character_edit' style='display: none'>
-                
+                <form method='post' >
+                    <input type='hidden' name='protagonist_id' value='$protagonist_id'>
+                    <input type='hidden' name='form_type' value='edit_protagonist'>
+                    
+                    <label for='protagonist_name'><b>Name:</b></label>
+                    <input type='text' id='protagonist_name' name='protagonist_name' value='$protagonist_name'><br>
+                    
+                    <label for='protagonist_info'><b>Info:</b></label><br>
+                    <textarea name='protagonist_info' id='protagonist_info'>$protagonist_info</textarea><br>
+                    
+                    <label for='protagonist_background'><b>Background:</b></label><br>
+                    <textarea name='protagonist_background' id='protagonist_background'>$protagonist_background</textarea><br>
+                    
+                    <label for='protagonist_description'><b>Description:</b></label><br>
+                    <textarea name='protagonist_description' id='protagonist_description'>$protagonist_description</textarea><br>
+                    
+                    <label for='protagonist_readies'><b>Number of readies:</b></label>
+                    <input type='number' name='protagonist_readies' id='protagonist_readies' value='$protagonist_readies'><br>
+                    
+                    <label for='protagonist_mementos'><b>Mementos:</b></label>
+                    <input type='text' id='protagonist_mementos' name='protagonist_mementos' value='$protagonist_mementos'><br>
+                    
+                    <label for='protagonist_flaw'><b>Flaw:</b></label>
+                    <input type='text' id='protagonist_flaw' name='protagonist_flaw' value='$protagonist_flaw'><br>
+                    
+                    <label for='protagonist_dilemma'><b>Dilemma:</b></label>
+                    <input type='text' id='protagonist_dilemma' name='protagonist_dilemma' value='$protagonist_dilemma'><br>
+                    
+                    <label for='protagonist_status'><b>Status:</b></label>
+                    <input type='text' id='protagonist_status' name='protagonist_status' value='$protagonist_status'><br>
+                    
+                    <label for='protagonist_standing'><b>Standing:</b></label>
+                    <input type='number' id='protagonist_standing' name='protagonist_standing' min='-10' max='10' value='$protagonist_standing'><br>
+                    
+                    <!--Potřeba přidat další php SQL na traity a pro cues -->
+                    
+                    <input type='submit' value='Save'>
+                    <button type='button' id='character_cancel_button'>Cancel</button>                    
+                    
+                    </form>
                 </div>
                 ";
 
@@ -253,6 +326,7 @@ if (!empty($_POST['form_type'])){
                         $category_name = $category_names[0]['category_name'];
                         echo $category_name;
 
+                        //tvorba nové poznámky, jen se vytvoří, jméno se ještě nedává
                         echo '<form method="post">
                     <input type="hidden" name="form_type" value="new_note">
                     <input type="hidden" name="group_id" value='.$group_id.'>
@@ -289,7 +363,7 @@ if (!empty($_POST['form_type'])){
                     foreach ($categories as $category){
                         $category_name = $category['category_name'];
                         $category_id = $category['category_id'];
-                        echo"<a href='group.php?group_id=$group_id&category=$category_id'>$category_name</a>";
+                        echo"<a href='group.php?group_id=$group_id&category=$category_id&protagonist=$current_protagonist'>$category_name</a>";
                     }
                 }
                 ?>

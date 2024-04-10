@@ -64,6 +64,27 @@ $(document).ready(function (){
 
     })
 
+    //kód pro ukazování / mizení protagonist notes a edit
+    var protagonist_button = document.getElementById("protagonist_edit_button");
+    var character_info = document.getElementById("character_info");
+    var character_edit = document.getElementById("character_edit");
+
+    protagonist_button.addEventListener("click", function (){
+
+
+        if (character_info.style.display === "block" || character_edit.style.display === "none"){
+            character_info.style.display = "none";
+            character_edit.style.display = "block";
+        }
+    })
+
+    var character_cancel_button = document.getElementById("character_cancel_button");
+
+    character_cancel_button.addEventListener("click", function (){
+        character_info.style.display = "block";
+        character_edit.style.display = "none";
+    })
+
 
 
 })

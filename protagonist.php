@@ -101,7 +101,7 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         <h2>Protagonist creation</h2>
 
             <input type="hidden" name="group_id" id="group_id" value="<?php echo $group_id ?>">
-        <input type="hidden" name="fomr" id="form" value="form">
+        <input type="hidden" name="form" id="form" value="form">
 
             <label for="protagonist_name"><b>Protagonist's name:</b></label><br>
             <?php if (!empty($errors['protagonist_name'])): ?>
