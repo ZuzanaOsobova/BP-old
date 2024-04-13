@@ -41,7 +41,6 @@ main {
 .column2 {
     width: 45%;
     height: 100%;
-    border: #c8443c solid 1px;
     overflow: auto;
 
 }

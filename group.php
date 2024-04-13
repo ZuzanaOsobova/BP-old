@@ -10,11 +10,37 @@ $group_id = intval($_GET["group_id"]);
 @$current_category = $_GET['category'];
 @$current_protagonist = $_GET['protagonist'];
 
-$stmt = $db->prepare("SELECT group_name FROM groups WHERE group_id = ? LIMIT 1");
-$stmt->execute([$group_id]);
-$group_name = $stmt ->fetchAll(PDO::FETCH_ASSOC);
+$group_name = "";
+$group_info = "";
+$group_description = "";
+$group_trouble = "";
+$group_renown = "";
+$group_readies = "";
+$group_trophies = "";
+$group_den = "";
+$group_updates = "";
 
-$group_name = $group_name[0]['group_name'];
+//Získáme vše k aktivní skupině
+$stmt = $db->prepare("SELECT * FROM groups WHERE group_id = ? LIMIT 1");
+$stmt->execute([$group_id]);
+$group = $stmt ->fetch(PDO::FETCH_ASSOC);
+
+if (!empty($group)){
+
+    $group_name = $group['group_name'];
+    $group_info = $group['group_info'];
+    $group_description = $group['group_description'];
+    $group_trouble = $group['group_trouble'];
+    $group_renown = $group['group_renown'];
+    $group_readies = $group['group_readies'];
+    $group_trophies = $group['group_trophies'];
+    $group_den = $group['group_den'];
+    $group_updates = $group['group_updates'];
+
+} else {
+    header("Location: index.html");
+}
+
 echo"<script>console.log('$group_name'), console.log($current_category)</script>";
 
 
@@ -131,7 +157,56 @@ if (!empty($_POST['form_type'])){
         <div class="social_club">
             <h2><?php echo $group_name;?></h2>
             <div class="social_club_content">
-                Hello
+                <div id="group_info">
+                    <p><b>Info:</b><?php $group_info ?></p>
+                    <p><b>Description:</b><?php $group_description ?></p>
+                    <p><b>Trouble:</b><?php $group_trouble ?></p>
+                    <p><b>Den:</b><?php $group_den ?></p>
+                    <p><b>Trophies:</b><?php $group_trophies ?></p>
+                    <p><b>Renown:</b><?php $group_renown ?></p>
+                    <p><b>Readies:</b><?php $group_readies ?></p>
+
+                    <!-- PHP a SQL pro existující updates -->
+
+                </div>
+
+                <div id="group_edit">
+                    <form method="post">
+                        <input type='hidden' name='group_id' value='<?php $group_id?>'>
+                        <input type='hidden' name='form_type' value='edit_group'>
+
+                        <label for='group_name'><b>Name:</b></label>
+                        <input type='text' id='group_name' name='group_name' value='<?php $group_name ?>'><br>
+
+                        <label for='group_info'><b>Info:</b></label><br>
+                        <textarea id='group_info' name='group_info' value='<?php $group_info ?>'></textarea><br>
+
+                        <label for='group_description'><b>Description:</b></label>
+                        <textarea id='group_description' name='group_description' value='<?php $group_description ?>'></textarea><br>
+
+                        <label for='group_trouble'><b>Trouble:</b></label>
+                        <input type='text' id='group_trouble' name='group_trouble' value='<?php $group_trouble ?>'><br>
+
+                        <label for='group_den'><b>The DEN:</b></label>
+                        <textarea id='group_den' name='group_den' value='<?php $group_den ?>'></textarea><br>
+
+                        <label for='group_trophies'><b>The Trophies:</b></label>
+                        <textarea id='group_trophies' name='group_trophies' value='<?php $group_trophies ?>'></textarea><br>
+
+                        <label for='group_readies'><b>Readies:</b></label>
+                        <input type="number" id="group_readies" name="group_readies" value="<?php $group_readies ?>"><br>
+
+                        <label for='group_renown'><b>Renown:</b></label>
+                        <input type="number" id="group_renown" name="group_renown" value="<?php $group_renown ?>" min="0"><br>
+
+
+                        <!-- dodělat if statement spolu s upgrades -->
+
+                        <input type='submit' value='Save'>
+                        <button type='button' id='group_cancel_button'>Cancel</button>
+                    </form>
+
+                </div>
             </div>
 
         </div>
