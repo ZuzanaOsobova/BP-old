@@ -127,6 +127,38 @@ if (!empty($_POST['form_type'])){
         header("Location:group.php?group_id=$group_id&protagonist=$protagonist_id&category=$current_category");
 
     }
+
+
+    if ($form_type == "edit_group"){
+
+        $group_id = intval($_POST['group_id']);
+
+        $group_name = htmlspecialchars($_POST['group_name']);
+        $group_info = htmlspecialchars($_POST['group_info']);
+        $group_description = htmlspecialchars($_POST['group_description']);
+        $group_trouble = htmlspecialchars($_POST['group_trouble']);
+        $group_den = htmlspecialchars($_POST['group_den']);
+        $group_trophies = intval($_POST['group_trophies']);
+        $group_readies = intval($_POST['group_readies']);
+        $group_renown = intval($_POST['group_renown']);
+
+        $stmt = $db->prepare("UPDATE groups SET 
+                 group_name = ?, group_info = ?, group_description = ?, 
+group_trouble = ?, group_den = ?, group_trophies = ?,
+group_readies = ?, group_renown = ?
+WHERE group_id = ?");
+        $stmt->execute([$group_name, $group_info, $group_description,
+            $group_trouble, $group_den, $group_trophies,
+            $group_readies, $group_renown,
+            $group_id]);
+
+        echo"<script>console.log('Yippe')</script>";
+        header("Location:group.php?group_id=$group_id&protagonist=$protagonist_id&category=$current_category");
+
+
+
+
+    }
 }
 
 
@@ -142,7 +174,7 @@ if (!empty($_POST['form_type'])){
 
 <head>
     <link rel="stylesheet" href="group_stylesheet.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>-->
     <script src="group_javascript.js"></script>
 
     <title><?php echo $group_name;?></title>
@@ -157,47 +189,48 @@ if (!empty($_POST['form_type'])){
         <div class="social_club">
             <h2><?php echo $group_name;?></h2>
             <div class="social_club_content">
-                <div id="group_info">
-                    <p><b>Info:</b><?php $group_info ?></p>
-                    <p><b>Description:</b><?php $group_description ?></p>
-                    <p><b>Trouble:</b><?php $group_trouble ?></p>
-                    <p><b>Den:</b><?php $group_den ?></p>
-                    <p><b>Trophies:</b><?php $group_trophies ?></p>
-                    <p><b>Renown:</b><?php $group_renown ?></p>
-                    <p><b>Readies:</b><?php $group_readies ?></p>
+                <div id="group_info" >
+                    <input type='button' id='group_edit_button' value='Edit Group'>
+                    <p><b>Info:</b><?php echo $group_info ?></p>
+                    <p><b>Description:</b><?php echo $group_description ?></p>
+                    <p><b>Trouble:</b><?php echo $group_trouble ?></p>
+                    <p><b>Den:</b><?php echo $group_den ?></p>
+                    <p><b>Trophies:</b><?php echo $group_trophies ?></p>
+                    <p><b>Renown:</b><?php echo $group_renown ?></p>
+                    <p><b>Readies:</b><?php echo $group_readies ?></p>
 
                     <!-- PHP a SQL pro existující updates -->
 
                 </div>
 
-                <div id="group_edit">
+                <div id="group_edit" style="display: none">
                     <form method="post">
-                        <input type='hidden' name='group_id' value='<?php $group_id?>'>
+                        <input type='hidden' name='group_id' value='<?php echo $group_id?>'>
                         <input type='hidden' name='form_type' value='edit_group'>
 
                         <label for='group_name'><b>Name:</b></label>
-                        <input type='text' id='group_name' name='group_name' value='<?php $group_name ?>'><br>
+                        <textarea  id='group_name' name='group_name'><?php echo $group_name ?></textarea><br>
 
                         <label for='group_info'><b>Info:</b></label><br>
-                        <textarea id='group_info' name='group_info' value='<?php $group_info ?>'></textarea><br>
+                        <textarea id='group_info' name='group_info'><?php echo $group_info ?></textarea><br>
 
                         <label for='group_description'><b>Description:</b></label>
-                        <textarea id='group_description' name='group_description' value='<?php $group_description ?>'></textarea><br>
+                        <textarea id='group_description' name='group_description'><?php echo $group_description ?></textarea><br>
 
                         <label for='group_trouble'><b>Trouble:</b></label>
-                        <input type='text' id='group_trouble' name='group_trouble' value='<?php $group_trouble ?>'><br>
+                        <textarea id='group_trouble' name='group_trouble'><?php echo $group_trouble ?></textarea><br>
 
                         <label for='group_den'><b>The DEN:</b></label>
-                        <textarea id='group_den' name='group_den' value='<?php $group_den ?>'></textarea><br>
+                        <textarea id='group_den' name='group_den' ><?php echo $group_den ?></textarea><br>
 
                         <label for='group_trophies'><b>The Trophies:</b></label>
-                        <textarea id='group_trophies' name='group_trophies' value='<?php $group_trophies ?>'></textarea><br>
+                        <input type="number" id='group_trophies' name='group_trophies' value="<?php echo $group_trophies ?>"><br>
 
                         <label for='group_readies'><b>Readies:</b></label>
-                        <input type="number" id="group_readies" name="group_readies" value="<?php $group_readies ?>"><br>
+                        <input type="number" id="group_readies" name="group_readies" value="<?php echo $group_readies ?>"><br>
 
                         <label for='group_renown'><b>Renown:</b></label>
-                        <input type="number" id="group_renown" name="group_renown" value="<?php $group_renown ?>" min="0"><br>
+                        <input type="number" id="group_renown" name="group_renown" value="<?php echo $group_renown ?>" min="0" max="15"><br>
 
 
                         <!-- dodělat if statement spolu s upgrades -->
@@ -208,10 +241,6 @@ if (!empty($_POST['form_type'])){
 
                 </div>
             </div>
-
-        </div>
-
-        <div class="chat">
 
         </div>
 
@@ -231,10 +260,10 @@ if (!empty($_POST['form_type'])){
                 $stmt = $db->prepare("SELECT protagonist_name FROM protagonists WHERE protagonist_id = ? LIMIT 1 ");
                 $stmt->execute([$protagonist_id]);
 
-                $protagonist_names = $stmt ->fetchAll(PDO::FETCH_ASSOC);
+                $protagonist_names = $stmt ->fetch(PDO::FETCH_ASSOC);
 
                 if (!empty($protagonist_names)){
-                    $protagonist_name = $protagonist_names[0]['protagonist_name'];
+                    $protagonist_name = $protagonist_names['protagonist_name'];
                     echo "<script>console.log($protagonist_name)</script>";
                     echo $protagonist_name;
 
@@ -306,7 +335,7 @@ if (!empty($_POST['form_type'])){
 
                 echo "
                 <div id='character_info'>
-                <input type='button' id='protagonist_edit_button' onclick='' value='Edit Protagonist'>
+                <input type='button' id='protagonist_edit_button' value='Edit Protagonist'>
                 <p><b>Archetype:</b> $archetype_name</p><br>
                 <p><b>Protagonist info:</b><br> $protagonist_info</p><br>
                 <p><b>Background info:</b><br> $protagonist_background</p><br>

@@ -1,5 +1,25 @@
-$(document).ready(function (){
+document.addEventListener("DOMContentLoaded", function (){
 
+
+    //kód pro ukazování a schovávání group info a edit
+    var group_button = document.getElementById("group_edit_button");
+    var group_info = document.getElementById("group_info");
+    var group_edit = document.getElementById("group_edit");
+
+    group_button.addEventListener("click", function (){
+        group_info.style.display = "none";
+        group_edit.style.display = "block";
+        console.log("cklick")
+
+    })
+
+    var group_cancel_button = document.getElementById("group_cancel_button");
+
+    group_cancel_button.addEventListener("click", function (){
+        group_info.style.display = "block";
+        group_edit.style.display = "none";
+        console.log("clack")
+    })
 
 
     //Kód pro schovávání a ukazování tvorby nové kategorie
@@ -69,6 +89,10 @@ $(document).ready(function (){
     var character_info = document.getElementById("character_info");
     var character_edit = document.getElementById("character_edit");
 
+    //kód pro kontrolu otho, že je vybrána nějaká postava
+
+
+
     protagonist_button.addEventListener("click", function (){
 
 
@@ -84,6 +108,9 @@ $(document).ready(function (){
         character_info.style.display = "block";
         character_edit.style.display = "none";
     })
+
+
+
 
 
 
