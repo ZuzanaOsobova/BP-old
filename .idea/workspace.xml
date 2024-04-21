@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="show and edit (whithout submit) of group">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2024_15_14_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2024_15_14__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2024_22_59_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_04_2024_22_59__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_06_04_2024_22_59_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_06_04_2024_22_59__Changes_.xml" beforeDir="false" />
+    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="group edit working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group.php" beforeDir="false" afterPath="$PROJECT_DIR$/group.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group_javascript.js" beforeDir="false" afterPath="$PROJECT_DIR$/group_javascript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group_stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/group_stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/header.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.inc.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,7 +122,8 @@
       <workItem from="1713351346674" duration="605000" />
       <workItem from="1713362461809" duration="1197000" />
       <workItem from="1713455116295" duration="6457000" />
-      <workItem from="1713624071840" duration="9602000" />
+      <workItem from="1713624071840" duration="10060000" />
+      <workItem from="1713695545550" duration="3951000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1711805198103</created>
@@ -377,7 +370,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713041569476</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="group edit working">
+      <created>1713638516323</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1713638516323</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,7 +395,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Header CSS made" />
     <MESSAGE value="Index &amp; Settings css made" />
     <MESSAGE value="User login required, tested, working on every page" />
     <MESSAGE value="Create user a user výčet, potřeba upravit CSS" />
@@ -420,7 +419,8 @@
     <MESSAGE value="Protagonist info shown, need to make edit part" />
     <MESSAGE value="Edit protagonisty" />
     <MESSAGE value="show and edit (whithout submit) of group" />
-    <option name="LAST_COMMIT_MESSAGE" value="show and edit (whithout submit) of group" />
+    <MESSAGE value="group edit working" />
+    <option name="LAST_COMMIT_MESSAGE" value="group edit working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -428,7 +428,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/group_javascript.js</url>
           <line>95</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

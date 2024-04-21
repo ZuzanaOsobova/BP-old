@@ -124,6 +124,19 @@ if (!empty($_POST['form_type'])){
             $protagonist_background,  $protagonist_readies, $protagonist_standing, $protagonist_status,
             $protagonist_id]);
 
+
+        $protagonist_trait_ids = $_POST['trait_ids'];
+
+        foreach ($protagonist_trait_ids as $protagonist_trait_id){
+            $protagonist_trait_level = intval($_POST['trait_'.$protagonist_trait_id]);
+
+
+            $stmt = $db -> prepare("UPDATE rel_protagonist_trait SET protagonist_trait_level = ? WHERE protagonist_trait_id = ?");
+            $stmt->execute([$protagonist_trait_level, $protagonist_trait_id]);
+        }
+
+
+
         header("Location:group.php?group_id=$group_id&protagonist=$protagonist_id&category=$current_category");
 
     }
@@ -174,7 +187,6 @@ WHERE group_id = ?");
 
 <head>
     <link rel="stylesheet" href="group_stylesheet.css">
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>-->
     <script src="group_javascript.js"></script>
 
     <title><?php echo $group_name;?></title>
@@ -330,12 +342,37 @@ WHERE group_id = ?");
                     $archetype_name = $archetype_names['archetype_name'];
                 }
 
+                $query = $db ->prepare("SELECT 
+                                                protagonist_trait_id, rel_protagonist_trait.trait_id, protagonist_trait_level, traits.trait_name 
+                                                FROM rel_protagonist_trait 
+                                                JOIN traits ON rel_protagonist_trait.trait_id = traits.trait_id 
+                                                WHERE protagonist_id = ?");
+                $query->execute([$protagonist_id]);
+                $traits = $query->fetchAll(PDO::FETCH_ASSOC);
 
-                //potřeba dopsat SQL pro cues a traits
+
+
+
+                //NORMÁLNÍ TEXT
 
                 echo "
                 <div id='character_info'>
-                <input type='button' id='protagonist_edit_button' value='Edit Protagonist'>
+                <input type='button' id='protagonist_edit_button' value='Edit Protagonist'>";
+
+            foreach ($traits as $trait){
+                $protagonist_trait_id = $trait['protagonist_trait_id'];
+                $trait_id = $trait['trait_id'];
+                $protagonist_trait_level = $trait['protagonist_trait_level'];
+                $trait_name = $trait['trait_name'];
+
+                echo "
+                <p><b>$trait_name:</b> $protagonist_trait_level</p><br>
+                
+                ";
+
+            }
+
+                echo"
                 <p><b>Archetype:</b> $archetype_name</p><br>
                 <p><b>Protagonist info:</b><br> $protagonist_info</p><br>
                 <p><b>Background info:</b><br> $protagonist_background</p><br>
@@ -351,6 +388,7 @@ WHERE group_id = ?");
                 ";
 
 
+            //EDIT TEXT
                 echo "
                 <div id='character_edit' style='display: none'>
                 <form method='post' >
@@ -359,7 +397,28 @@ WHERE group_id = ?");
                     
                     <label for='protagonist_name'><b>Name:</b></label>
                     <input type='text' id='protagonist_name' name='protagonist_name' value='$protagonist_name'><br>
-                    
+                    ";
+
+                foreach ($traits as $trait){
+                    $protagonist_trait_id = $trait['protagonist_trait_id'];
+                    $trait_id = $trait['trait_id'];
+                    $protagonist_trait_level = $trait['protagonist_trait_level'];
+                    $trait_name = $trait['trait_name'];
+
+                    //TODO
+                    // předělat max value dle toho, zda skupina používá updates a zda má jeden update
+
+                    echo "
+                    <label for='trait_$protagonist_trait_id'><b>$trait_name</b></label>
+                    <input type='number' name='trait_$protagonist_trait_id' id='trait_$protagonist_trait_id' min='1' max='8' value='$protagonist_trait_level'><br>
+                    <input type='hidden' name='trait_ids[]' value='$protagonist_trait_id'>
+                                    
+                ";
+
+                }
+
+
+                    echo "
                     <label for='protagonist_info'><b>Info:</b></label><br>
                     <textarea name='protagonist_info' id='protagonist_info'>$protagonist_info</textarea><br>
                     
