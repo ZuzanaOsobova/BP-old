@@ -346,8 +346,8 @@ WHERE group_id = ?");
                                                 protagonist_trait_id, rel_protagonist_trait.trait_id, protagonist_trait_level, traits.trait_name 
                                                 FROM rel_protagonist_trait 
                                                 JOIN traits ON rel_protagonist_trait.trait_id = traits.trait_id 
-                                                WHERE protagonist_id = ?");
-                $query->execute([$protagonist_id]);
+                                                WHERE rel_protagonist_trait.protagonist_id = ?");
+                $query->execute([$current_protagonist]);
                 $traits = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
