@@ -136,6 +136,30 @@ if (!empty($_POST['form_type'])){
         }
 
 
+        $cues_ids = $_POST['cue_ids'];
+        $protagonist_cue_ids = $_POST['protagonist_cue_ids'];
+
+        foreach ($cues_ids as $key =>$cue_id){
+            $cue_number = intval($_POST['cue_'.$cue_id]);
+            $protagonist_cue_id = $protagonist_cue_ids[$key];
+
+
+            if (empty($protagonist_cue_id)){
+
+                $stmt = $db->prepare("INSERT INTO rel_protagonist_cue (protagonist_id, cue_id, protagonist_cue_number)
+                                            VALUES (?, ?, ?)");
+                $stmt->execute([$protagonist_id, $cue_id, $cue_number]);
+
+            } else {
+
+                $stmt = $db->prepare("UPDATE rel_protagonist_cue SET protagonist_cue_number = ? WHERE protagonist_cue_id = ?");
+                $stmt->execute([$cue_number, $protagonist_cue_id]);
+            }
+
+
+        }
+
+
 
         header("Location:group.php?group_id=$group_id&protagonist=$protagonist_id&category=$current_category");
 
@@ -462,6 +486,14 @@ WHERE group_id = ?");
                 $traits = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
+                $stmt = $db->prepare("SELECT cues.cue_id, cues.cue_name, cues.cue_text, cues.archetype_id, rel_protagonist_cue.protagonist_cue_number, rel_protagonist_cue.protagonist_cue_id
+                                            FROM cues
+                                            LEFT JOIN rel_protagonist_cue ON rel_protagonist_cue.cue_id = cues.cue_id 
+                                            AND rel_protagonist_cue.protagonist_id = ?
+                                            WHERE cues.archetype_id = ?");
+                $stmt->execute([$current_protagonist,$archetype_id]);
+                $cues = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 
 
                 //NORMÁLNÍ TEXT
@@ -470,18 +502,18 @@ WHERE group_id = ?");
                 <div id='character_info'>
                 <input type='button' id='protagonist_edit_button' value='Edit Protagonist'>";
 
-            foreach ($traits as $trait){
-                $protagonist_trait_id = $trait['protagonist_trait_id'];
-                $trait_id = $trait['trait_id'];
-                $protagonist_trait_level = $trait['protagonist_trait_level'];
-                $trait_name = $trait['trait_name'];
+                foreach ($traits as $trait){
+                    $protagonist_trait_id = $trait['protagonist_trait_id'];
+                    $trait_id = $trait['trait_id'];
+                    $protagonist_trait_level = $trait['protagonist_trait_level'];
+                    $trait_name = $trait['trait_name'];
 
-                echo "
-                <p><b>$trait_name:</b> $protagonist_trait_level</p><br>
-                
-                ";
+                    echo "
+                    <p><b>$trait_name:</b> $protagonist_trait_level</p><br>
+                    
+                    ";
 
-            }
+                }
 
                 echo"
                 <p><b>Archetype:</b> $archetype_name</p><br>
@@ -494,7 +526,26 @@ WHERE group_id = ?");
                 <p><b>Protagonist's dilemma:</b> $protagonist_dilemma</p><br>
                 <p><b>Protagonist's status:</b> $protagonist_status</p><br>
                 <p><b>Protagonist's standing:</b> $protagonist_standing</p><br>
+                ";
 
+
+
+                foreach ($cues as $cue){
+                    $cue_id = $cue['cue_id'];
+                    $cue_name = $cue['cue_name'];
+                    $cue_text = $cue['cue_text'];
+                    $cue_number = $cue['protagonist_cue_number'];
+
+                    if (empty($cue_number)){
+                        $cue_number = 0;
+                    }
+
+                    echo "
+                    <p><b>$cue_name</b><br>Number of use: $cue_number<br> $cue_text</p>
+                    ";
+                }
+
+                echo "
             </div>
                 ";
 
@@ -527,6 +578,29 @@ WHERE group_id = ?");
                 ";
 
                 }
+
+                echo "<h3>Protagonist Cues</h3>";
+
+                foreach ($cues as $cue){
+                    $cue_id = $cue['cue_id'];
+                    $cue_name = $cue['cue_name'];
+                    $cue_text = $cue['cue_text'];
+                    $cue_number = $cue['protagonist_cue_number'];
+                    $protagonist_cue_id = $cue['protagonist_cue_id'];
+
+                    if (empty($cue_number)){
+                        $cue_number = 0;
+                    }
+
+                    echo "
+                    <label for='cue_$cue_id'><b>$cue_name</b></label>
+                    <input type='number' name='cue_$cue_id' id='cue_$cue_id' min='0' max='3' value='$cue_number'><br>
+                    <input type='hidden' name='cue_ids[]' value='$cue_id'>
+                    <input type='hidden' name='protagonist_cue_ids[]' value='$protagonist_cue_id'>
+                    ";
+                }
+
+
 
 
                     echo "
