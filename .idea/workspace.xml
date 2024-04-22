@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="TRAITS show and edit working">
+    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="Minor edit for character trait edit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group.php" beforeDir="false" afterPath="$PROJECT_DIR$/group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group_stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/group_stylesheet.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +123,8 @@
       <workItem from="1713362461809" duration="1197000" />
       <workItem from="1713455116295" duration="6457000" />
       <workItem from="1713624071840" duration="10060000" />
-      <workItem from="1713695545550" duration="5991000" />
+      <workItem from="1713695545550" duration="6025000" />
+      <workItem from="1713775413039" duration="8505000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1711805198103</created>
@@ -383,7 +385,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713706294360</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Minor edit for character trait edit">
+      <created>1713709473099</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1713709473099</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,7 +410,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="User login required, tested, working on every page" />
     <MESSAGE value="Create user a user výčet, potřeba upravit CSS" />
     <MESSAGE value="Group create, včetně přidání relationshipu admin - group, a výčet groups" />
     <MESSAGE value="header showing only groups the user is part of, in case of admin, showing settings as well, supressed session_start() error messages with @" />
@@ -426,7 +434,8 @@
     <MESSAGE value="show and edit (whithout submit) of group" />
     <MESSAGE value="group edit working" />
     <MESSAGE value="TRAITS show and edit working" />
-    <option name="LAST_COMMIT_MESSAGE" value="TRAITS show and edit working" />
+    <MESSAGE value="Minor edit for character trait edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor edit for character trait edit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -435,6 +444,16 @@
           <url>file://$PROJECT_DIR$/group_javascript.js</url>
           <line>95</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/group.php</url>
+          <line>349</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/group.php</url>
+          <line>175</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

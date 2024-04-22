@@ -165,6 +165,30 @@ WHERE group_id = ?");
             $group_readies, $group_renown,
             $group_id]);
 
+
+
+
+        //Editujeme nové upgrades pokud jsou
+        if ($group_updates == 1){
+
+            $upgrades_ids = $_POST['upgrade_ids'];
+
+            foreach ($upgrades_ids as $upgrades_id){
+
+                $upgrade_id = intval($upgrades_id);
+
+                echo "<script>console.log($upgrade_id)</script>";
+
+                $stmt = $db -> prepare("INSERT INTO rel_group_upgrade(group_id, upgrade_id) VALUES (?,?)");
+                $stmt->execute([$group_id, $upgrade_id]);
+
+
+            }
+
+        }
+
+
+
         echo"<script>console.log('Yippe')</script>";
         header("Location:group.php?group_id=$group_id&protagonist=$protagonist_id&category=$current_category");
 
@@ -211,6 +235,63 @@ WHERE group_id = ?");
                     <p><b>Renown:</b><?php echo $group_renown ?></p>
                     <p><b>Readies:</b><?php echo $group_readies ?></p>
 
+
+                    <div id="upgrades">
+                    <?php
+                    if ($group_updates == 1){
+
+                        //Nevlastněné upgrades
+                        $stmt = $db->prepare("SELECT *
+                                                    FROM upgrades
+                                                    LEFT JOIN rel_group_upgrade ON upgrades.upgrades_id = rel_group_upgrade.upgrade_id 
+                                                    AND rel_group_upgrade.group_id = ?
+                                                    WHERE rel_group_upgrade.upgrade_id IS NULL;");
+                        $stmt->execute([$group_id]);
+                        $upgrades = $stmt->fetchAll();
+
+                        foreach ($upgrades as $upgrade){
+                            $upgrade_id = $upgrade['upgrades_id'];
+                            $upgrade_name = $upgrade['upgrades_name'];
+                            $upgrade_text = $upgrade['upgrades_text'];
+                            $upgrade_requirements = $upgrade['upgrades_requirements'];
+
+                            echo "
+                            <p><b>$upgrade_name:</b><br> $upgrade_text<br>$upgrade_requirements</p>
+                            ";
+                        }
+
+
+                        //vlastněné upgrades
+                        $stmt = $db->prepare("SELECT group_upgrade_id, rel_group_upgrade.upgrade_id, upgrades.upgrades_name, upgrades.upgrades_text 
+                                                    FROM rel_group_upgrade 
+                                                    LEFT JOIN upgrades 
+                                                    ON rel_group_upgrade.upgrade_id = upgrades.upgrades_id
+                                                    WHERE group_id = ?");
+                        $stmt->execute([$group_id]);
+                        $owned_upgrades =$stmt->fetchAll();
+
+                        if (!empty($owned_upgrades)){
+                            echo "<div> <b>OWNED UPGRADES</b><br>";
+                            foreach ($owned_upgrades as $owned_upgrade){
+                                $owned_id = $owned_upgrade['group_upgrade_id'];
+                                $owned_name = $owned_upgrade['upgrades_name'];
+                                $owned_text = $owned_upgrade['upgrades_text'];
+
+                                echo "
+                            <p>$owned_name<br>$owned_text</p>
+                            ";
+                            }
+                            echo "</div>";
+                        }
+
+
+
+
+
+                    }
+                    ?>
+                    </div>
+
                     <!-- PHP a SQL pro existující updates -->
 
                 </div>
@@ -246,6 +327,36 @@ WHERE group_id = ?");
 
 
                         <!-- dodělat if statement spolu s upgrades -->
+                        <?php
+                        if ($group_updates == 1){
+
+                            //Nevlastněné upgrades
+                            $stmt = $db->prepare("SELECT *
+                                                    FROM upgrades
+                                                    LEFT JOIN rel_group_upgrade ON upgrades.upgrades_id = rel_group_upgrade.upgrade_id 
+                                                    AND rel_group_upgrade.group_id = ?
+                                                    WHERE rel_group_upgrade.upgrade_id IS NULL;");
+                            $stmt->execute([$group_id]);
+                            $upgrades = $stmt->fetchAll();
+
+                            foreach ($upgrades as $upgrade){
+                                $upgrade_id = $upgrade['upgrades_id'];
+                                $upgrade_name = $upgrade['upgrades_name'];
+
+                                echo "                              
+                                <input type='checkbox' name='upgrade_ids[]' id='upgrade_$upgrade_id' value='$upgrade_id'>
+                                <label for='upgrade_$upgrade_id'>$upgrade_name</label>
+                                
+                                <br>
+                            ";
+
+                                //
+                            }
+                        }
+
+                        ?>
+
+
 
                         <input type='submit' value='Save'>
                         <button type='button' id='group_cancel_button'>Cancel</button>
