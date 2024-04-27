@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="group upgrades showing and editing when they are opt in, all working">
+    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="Protagonist cues show and edit done, all functioning">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group.php" beforeDir="false" afterPath="$PROJECT_DIR$/group.php" afterDir="false" />
     </list>
@@ -123,7 +123,12 @@
       <workItem from="1713455116295" duration="6457000" />
       <workItem from="1713624071840" duration="10060000" />
       <workItem from="1713695545550" duration="6025000" />
-      <workItem from="1713775413039" duration="15976000" />
+      <workItem from="1713775413039" duration="16240000" />
+      <workItem from="1713866882141" duration="602000" />
+      <workItem from="1714081472595" duration="11000" />
+      <workItem from="1714082574867" duration="595000" />
+      <workItem from="1714167896879" duration="513000" />
+      <workItem from="1714207770162" duration="4831000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1711805198103</created>
@@ -398,7 +403,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713784501412</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Protagonist cues show and edit done, all functioning">
+      <created>1713802046655</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1713802046655</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,7 +428,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Group create, včetně přidání relationshipu admin - group, a výčet groups" />
     <MESSAGE value="header showing only groups the user is part of, in case of admin, showing settings as well, supressed session_start() error messages with @" />
     <MESSAGE value="Added group and group users showing, added dropdown menu of all users existing, gotta add submit button and SQL to add users to groups" />
     <MESSAGE value="Started working on adding categories, the code seems fine, but does not work, syntax should be fine too" />
@@ -441,7 +452,8 @@
     <MESSAGE value="TRAITS show and edit working" />
     <MESSAGE value="Minor edit for character trait edit" />
     <MESSAGE value="group upgrades showing and editing when they are opt in, all working" />
-    <option name="LAST_COMMIT_MESSAGE" value="group upgrades showing and editing when they are opt in, all working" />
+    <MESSAGE value="Protagonist cues show and edit done, all functioning" />
+    <option name="LAST_COMMIT_MESSAGE" value="Protagonist cues show and edit done, all functioning" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

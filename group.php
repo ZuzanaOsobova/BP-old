@@ -122,7 +122,7 @@ if (!empty($_POST['form_type'])){
         $stmt->execute([$protagonist_name, $protagonist_info, $protagonist_description,
             $protagonist_mementos, $protagonist_flaw, $protagonist_dilemma,
             $protagonist_background,  $protagonist_readies, $protagonist_standing, $protagonist_status,
-            $protagonist_id]);
+            $current_protagonist]);
 
 
         $protagonist_trait_ids = $_POST['trait_ids'];
@@ -148,7 +148,7 @@ if (!empty($_POST['form_type'])){
 
                 $stmt = $db->prepare("INSERT INTO rel_protagonist_cue (protagonist_id, cue_id, protagonist_cue_number)
                                             VALUES (?, ?, ?)");
-                $stmt->execute([$protagonist_id, $cue_id, $cue_number]);
+                $stmt->execute([$current_protagonist, $cue_id, $cue_number]);
 
             } else {
 
@@ -161,7 +161,7 @@ if (!empty($_POST['form_type'])){
 
 
 
-        header("Location:group.php?group_id=$group_id&protagonist=$protagonist_id&category=$current_category");
+        header("Location:group.php?group_id=$group_id&protagonist=$current_protagonist&category=$current_category");
 
     }
 
