@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="Protagonist cues show and edit done, all functioning">
+    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="Přepsány některé protagonist_id na current protagonist">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group.php" beforeDir="false" afterPath="$PROJECT_DIR$/group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protagonist.php" beforeDir="false" afterPath="$PROJECT_DIR$/protagonist.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +128,10 @@
       <workItem from="1714081472595" duration="11000" />
       <workItem from="1714082574867" duration="595000" />
       <workItem from="1714167896879" duration="513000" />
-      <workItem from="1714207770162" duration="4831000" />
+      <workItem from="1714207770162" duration="6897000" />
+      <workItem from="1714239686480" duration="3000" />
+      <workItem from="1714247217514" duration="6000" />
+      <workItem from="1714290447238" duration="4568000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1711805198103</created>
@@ -410,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713802046655</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Přepsány některé protagonist_id na current protagonist">
+      <created>1714221839045</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1714221839045</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,7 +438,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="header showing only groups the user is part of, in case of admin, showing settings as well, supressed session_start() error messages with @" />
     <MESSAGE value="Added group and group users showing, added dropdown menu of all users existing, gotta add submit button and SQL to add users to groups" />
     <MESSAGE value="Started working on adding categories, the code seems fine, but does not work, syntax should be fine too" />
     <MESSAGE value="Adding categories works" />
@@ -453,7 +462,8 @@
     <MESSAGE value="Minor edit for character trait edit" />
     <MESSAGE value="group upgrades showing and editing when they are opt in, all working" />
     <MESSAGE value="Protagonist cues show and edit done, all functioning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Protagonist cues show and edit done, all functioning" />
+    <MESSAGE value="Přepsány některé protagonist_id na current protagonist" />
+    <option name="LAST_COMMIT_MESSAGE" value="Přepsány některé protagonist_id na current protagonist" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -462,11 +472,6 @@
           <url>file://$PROJECT_DIR$/group_javascript.js</url>
           <line>95</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/group.php</url>
-          <line>594</line>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

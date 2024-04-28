@@ -74,6 +74,21 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->execute([$protagonist_id,$trait_id,$trait_value]);
     }
 
+
+    //Update protagonist cues table
+    $cues_ids = $_POST['cue_ids'];
+    echo "<script>console.log($cues_ids)</script>";
+
+    foreach ($cues_ids as $cue_id){
+        $protagonist_cue_number = intval($_POST['cue_'.$cue_id]);
+
+        echo "<script>console.log($cue_id, $protagonist_cue_number)</script>";
+
+        $stmt = $db->prepare("INSERT INTO rel_protagonist_cue (protagonist_id, cue_id, protagonist_cue_number)
+                                            VALUES (?, ?, ?)");
+        $stmt->execute([$protagonist_id, $cue_id, $protagonist_cue_number]);
+    }
+
     header("Location:index.php");
 
 
@@ -143,6 +158,7 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 var archetypeTextElement = document.getElementById("archetype_text");
 
                 selectElement.addEventListener("change", function() {
+                    event.preventDefault();
                     var selectedOption = selectElement.value;
                     var selectedArchetype = <?php echo json_encode($archetypes); ?>.find(function(archetype) {
                         return archetype.archetype_id == selectedOption;
@@ -151,14 +167,11 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                     if (selectedArchetype) {
                         archetypeTextElement.textContent = selectedArchetype.archetype_text;
                     } else {
-                        archetypeTextElement.textContent = "";
+                        archetypeTextElement.textContent = "No archetype selected.";
                     }
                 });
             </script>
-    </div>
 
-    <div class="column">
-        <!-- přidat trait maker, responsive pomocí javascriptu -->
         <p><b>Your Traits</b></p>
         <p>Assing 5 points to traits of your choice.</p>
         <?php
@@ -172,6 +185,7 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $trait_text = $trait['trait_text'];
             $trait_number = "";
 
+
             echo"
             <label for='trait_$trait_id'><b>$trait_name</b></label>
             <input type='number' name='trait_$trait_id' id='trait_$trait_id' min='1' max='5' value='1'><br>
@@ -184,9 +198,79 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         }
 
         ?>
+    </div>
+
+    <div class="column">
+        <!-- cues -->
+        <h2>Cues</h2>
+        <p>Assign number of points to chosen cues: 3</p>
+        <p id="cues_text"></p>
+
+        <?php
+
+        $stmt = $db->prepare("SELECT * FROM cues");
+        $stmt->execute();
+        $cues = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+        foreach ($cues as $cue){
+            $cue_id = $cue['cue_id'];
+            $cue_name = $cue['cue_name'];
+            $cue_text = $cue['cue_text'];
+            $cue_archetype = $cue['archetype_id'];
+
+            /*echo "
+                    <label for='cue_$cue_id'><b>$cue_name</b></label>
+                    <input type='number' name='cue_$cue_id' id='cue_$cue_id' min='0' max='3'><br>
+                    <input type='hidden' name='cue_ids[]' value='$cue_id'>
+                    ";*/
+        }
+        ?>
+
+        <script>
+            var selectElement = document.getElementById("protagonist_class");
+            var cuesTextElement = document.getElementById("cues_text");
+
+            selectElement.addEventListener("change", function() {
+                event.preventDefault();
+
+                cuesTextElement.innerHTML = "";
+
+                var selectedOption = selectElement.value;
+
+                console.log("cue archetype selected = " + selectedOption);
+
+                var selectedCues = <?php echo json_encode($cues); ?>.filter(function(cue) {
+                    return cue.archetype_id == selectedOption;
+                });
+                console.log("cues selected = ", selectedCues);
+
+
+                if (selectedCues) {
+
+                    selectedCues.forEach(function (cue) {
+
+                        var html = "<label><b>" + cue.cue_name + "</b> </label>" +
+                            "<input type='number' name='cue_" + cue.cue_id + "' id='cue_" + cue.cue_id + "' min='0' max='3'> <br>" +
+                            cue.cue_text +
+                            "<input type='hidden' name='cue_ids[]' value='" + cue.cue_id + "'>" +
+                            "<br> <br>";
+
+                        cuesTextElement.innerHTML += html;
+
+                    })
+
+                } else {
+                    archetypeTextElement.textContent = "No archetype selected.";
+                }
+            });
+        </script>
 
 
 
+    </div>
+
+    <div class="column">
         <label for="protagonist_background"><b>What is your background?</b><br>While your selected class will describe who your character is, your background will describe your upbringing and what events led you to where you are today.</label><br>
         <textarea name="protagonist_background" id="protagonist_background"></textarea><br>
 
@@ -198,10 +282,6 @@ Title:
 Nickname:
 Relationship: (single/married/it's complicated and who is it)
         </textarea>
-
-    </div>
-
-    <div class="column">
 
         <label for="protagonist_description"><b>How do you look?</b><br>Write out any distinct features for your Protagonist here.</label><br>
         <input type="text" name="protagonist_description" id="protagonist_description"><br>
