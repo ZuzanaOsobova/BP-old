@@ -2,6 +2,8 @@
 
 require "database_connection.inc.php";
 
+$name = "";
+$password = "";
 
 $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
