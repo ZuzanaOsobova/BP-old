@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="Přepsány některé protagonist_id na current protagonist">
+    <list default="true" id="bc094f0e-1ea2-41fc-bf40-5aa748368797" name="Changes" comment="Traits přeneseny do prvního column&#10;druhý column čistě cues, vypsání správných cues dle vybraného archetypu zkrz HTML a poslání výsledků do databáze se zbytkem">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protagonist.php" beforeDir="false" afterPath="$PROJECT_DIR$/protagonist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +68,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/php/php.exe&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Zuzana/Desktop/Škola/Přednášky/Staré předměty/5) webovky/Space_invaders&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -131,7 +132,12 @@
       <workItem from="1714207770162" duration="6897000" />
       <workItem from="1714239686480" duration="3000" />
       <workItem from="1714247217514" duration="6000" />
-      <workItem from="1714290447238" duration="4568000" />
+      <workItem from="1714290447238" duration="6517000" />
+      <workItem from="1714674511429" duration="77000" />
+      <workItem from="1714759641699" duration="146000" />
+      <workItem from="1720434295987" duration="32000" />
+      <workItem from="1720435132121" duration="22000" />
+      <workItem from="1722257328984" duration="1880000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1711805198103</created>
@@ -420,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1714221839045</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Traits přeneseny do prvního column&#10;druhý column čistě cues, vypsání správných cues dle vybraného archetypu zkrz HTML a poslání výsledků do databáze se zbytkem">
+      <created>1714295089481</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1714295089481</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -438,7 +451,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added group and group users showing, added dropdown menu of all users existing, gotta add submit button and SQL to add users to groups" />
     <MESSAGE value="Started working on adding categories, the code seems fine, but does not work, syntax should be fine too" />
     <MESSAGE value="Adding categories works" />
     <MESSAGE value="Categories adding and choosing works" />
@@ -463,7 +475,8 @@
     <MESSAGE value="group upgrades showing and editing when they are opt in, all working" />
     <MESSAGE value="Protagonist cues show and edit done, all functioning" />
     <MESSAGE value="Přepsány některé protagonist_id na current protagonist" />
-    <option name="LAST_COMMIT_MESSAGE" value="Přepsány některé protagonist_id na current protagonist" />
+    <MESSAGE value="Traits přeneseny do prvního column&#10;druhý column čistě cues, vypsání správných cues dle vybraného archetypu zkrz HTML a poslání výsledků do databáze se zbytkem" />
+    <option name="LAST_COMMIT_MESSAGE" value="Traits přeneseny do prvního column&#10;druhý column čistě cues, vypsání správných cues dle vybraného archetypu zkrz HTML a poslání výsledků do databáze se zbytkem" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

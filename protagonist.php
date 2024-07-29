@@ -89,7 +89,7 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->execute([$protagonist_id, $cue_id, $protagonist_cue_number]);
     }
 
-    header("Location:index.php");
+    header("Location:group.php?group_id=$group_id");
 
 
 }

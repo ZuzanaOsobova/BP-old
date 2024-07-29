@@ -39,7 +39,9 @@ if (!empty($_POST['form_type'])){
             header('Location:settings.php');
         }
 
-    } elseif ($form_type == 'create_group') {
+    }
+
+    elseif ($form_type == 'create_group') {
 
         $group_name = htmlspecialchars(trim($_POST['group_name']));
         $group_upgrades = $_POST['group_upgrade'];
@@ -100,7 +102,19 @@ if (!empty($_POST['form_type'])){
             $stmt->execute([$group_id, $user_id]);
         }
 
+    }
+    elseif ($form_type == 'delete_user'){
 
+        $user_id = $_POST['user_id'];
+        echo" User_ID gotten $user_id";
+
+        $stmt = $db->prepare("DELETE FROM `rel_user_group` WHERE `user_id` = ?");
+        $stmt->execute([$user_id]);
+        echo "Deleted from relationships";
+
+        $stmt = $db->prepare("DELETE FROM users WHERE user_id = ? LIMIT 1");
+        $stmt->execute([$user_id]);
+        echo "Deleted user";
 
     }
 
@@ -151,13 +165,24 @@ if (!empty($_POST['form_type'])){
                 <h3>Users</h3>
                 <div class="users">
                     <?php
-                    $query = $db ->prepare("SELECT user_name FROM users");
+                    $query = $db ->prepare("SELECT user_name, user_id FROM users");
                     $query->execute();
                     $users = $query ->fetchAll(PDO::FETCH_ASSOC);
                     if(!empty($users)){
                         foreach ($users as $user){
                             $user_name = $user['user_name'];
-                            echo"<li>$user_name<br>";
+                            $user_id = $user['user_id'];
+                            echo"<li>$user_name - $user_id<br>";
+                            ?>
+
+                            <form method="post">
+                                <input type="hidden" name="form_type" value="delete_user">
+                                <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
+                                <input type="submit" id="submit" value="Delete <?php echo $user_name ?>">
+                            </form>
+
+                    <?php
+
                         }
                     }
                     ?>
