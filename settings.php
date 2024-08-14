@@ -3,6 +3,8 @@ include "header.inc.php";
 include "user_required.inc.php";
 include "database_connection.inc.php";
 
+//test
+
 $user_id = @$_SESSION['user_id'];
 
 //Is User admin
