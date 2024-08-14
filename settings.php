@@ -3,7 +3,6 @@ include "header.inc.php";
 include "user_required.inc.php";
 include "database_connection.inc.php";
 
-//test
 
 $user_id = @$_SESSION['user_id'];
 
@@ -120,6 +119,13 @@ if (!empty($_POST['form_type'])){
 
     }
 
+    elseif ($form_type =='delete_user_from_group'){
+        $user_id = $_POST['user_id'];
+        $group_id = $_POST['group_id'];
+
+        $stmt = $db->prepare("DELETE FROM `rel_user_group` WHERE `user_id` = ? AND `group_id` = ? ");
+        $stmt->execute([$user_id, $group_id]);
+    }
 }
 
 
@@ -279,7 +285,18 @@ ORDER BY groups.group_name, users.user_name");
 
                         <?php
                         foreach ($groupUsers as $userData) {
-                            echo "<li>{$userData['user_name']} (ID: {$userData['user_id']})<br>";
+                            echo "<li>{$userData['user_name']} (ID: {$userData['user_id']})";
+                            ?>
+
+                            <form method="post">
+                                <input type="hidden" name="form_type" value="delete_user_from_group">
+                                <input type="hidden" name="group_id" value="<?php echo $group_id ?>">
+                                <input type="hidden" name="user_id" value="<?php echo $userData['user_id'] ?>">
+                                <input type="submit" id="submit" value="Delete <?php echo $userData['user_name'] ?>">
+                            </form>
+
+
+                            <?php
                         }
                     }
                 }
